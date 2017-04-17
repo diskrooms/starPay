@@ -92,6 +92,23 @@ class pay{
 	    if(empty($notify)){
 	        throw new Exception("请求统一下单接口缺少参数notify！");
 	    }
+	    //赋值
+	    $parameters = array(
+	        'body'=>$body,
+	        'out_trade_no'=>$out_trade_no,
+	        'total_fee'=>$total_fee,
+	        'trade_type'=>$trade_type,
+	        'openid'=>$openId,
+	        'product_id'=>$product_id,
+	        'notify_url'=>$notify,
+	        
+	        'appid'=>$this->wxAppId,
+	        'mch_id'=>$this->wxMchId,
+	        'spbill_create_ip'=>$_SERVER['REMOTE_ADDR'],
+	        'nonce_str'=>self::getNonceStr()
+	    );
+	    
+	    //生成xml字符串
 	    
 	}
 	
@@ -99,4 +116,17 @@ class pay{
 	 * 签名算法
 	 */
 	
+	
+	/**
+	 * 生成少于32位的随机字符串
+	 */
+	private static function getNonceStr($length = 32)
+	{
+	    $chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+	    $str ="";
+	    for ( $i = 0; $i < $length; $i++ )  {
+	        $str .= substr($chars, mt_rand(0, strlen($chars)-1), 1);
+	    }
+	    return $str;
+	}
 }
