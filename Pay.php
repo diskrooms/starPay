@@ -107,6 +107,7 @@ class pay{
 	        'spbill_create_ip'=>$_SERVER['REMOTE_ADDR'],
 	        'nonce_str'=>self::getNonceStr()
 	    );
+	    $parameters['sign'] = self::sign($parameters);
 	    
 	    //生成xml字符串
 	    $xml = '<xml>';
@@ -119,16 +120,24 @@ class pay{
 	     }
 	    $xml .= '</xml>';
 	    
+	    $wx_api_url = 'https://api.mch.weixin.qq.com/pay/unifiedorder';
+	    $result = self::postXmlCurl($xml, $wx_api_url);
+	    //TODO分析返回结果
 	}
 	
 	/**
 	 * 签名算法
 	 */
-	public static function sign($data=array()){
+	private static function sign($data=array()){
 	    //空的元素不参与签名
 	    $data = array_filter($data);
 	    ksort($data);
-	    
+	    $signStr = '';
+	    foreach ($data as $k=>$v){
+	        $signStr .= $k.'='.$v.'&';
+	    }
+	    $signStr .= 'key='.$this->wxMchKey;
+	    $sign = strtoupper(md5($signStr));
 	}
 	
 	/**
@@ -144,8 +153,57 @@ class pay{
 	}
 	
 	/**
+	 * 以post方式提交xml到对应的接口url
 	 * 
+	 * @param string $xml  需要post的xml数据
+	 * @param string $url  url
+	 * @param bool $useCert 是否需要证书，默认不需要
+	 * @param int $second   url执行超时时间，默认30s
+	 * @throws WxPayException
 	 */
+	private static function postXmlCurl($xml, $url, $useCert = false, $second = 30)
+	{		
+		$ch = curl_init();
+		//设置超时
+		curl_setopt($ch, CURLOPT_TIMEOUT, $second);
+		
+		//如果有配置代理这里就设置代理
+		if(WxPayConfig::CURL_PROXY_HOST != "0.0.0.0" 
+			&& WxPayConfig::CURL_PROXY_PORT != 0){
+			curl_setopt($ch,CURLOPT_PROXY, WxPayConfig::CURL_PROXY_HOST);
+			curl_setopt($ch,CURLOPT_PROXYPORT, WxPayConfig::CURL_PROXY_PORT);
+		}
+		curl_setopt($ch,CURLOPT_URL, $url);
+		curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,TRUE);
+		curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,2);//严格校验
+		//设置header
+		curl_setopt($ch, CURLOPT_HEADER, FALSE);
+		//要求结果为字符串且输出到屏幕上
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+	
+		if($useCert == true){
+			//设置证书
+			//使用证书：cert 与 key 分别属于两个.pem文件
+			curl_setopt($ch,CURLOPT_SSLCERTTYPE,'PEM');
+			curl_setopt($ch,CURLOPT_SSLCERT, WxPayConfig::SSLCERT_PATH);
+			curl_setopt($ch,CURLOPT_SSLKEYTYPE,'PEM');
+			curl_setopt($ch,CURLOPT_SSLKEY, WxPayConfig::SSLKEY_PATH);
+		}
+		//post提交方式
+		curl_setopt($ch, CURLOPT_POST, TRUE);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, $xml);
+		//运行curl
+		$data = curl_exec($ch);
+		//返回结果
+		if($data){
+			curl_close($ch);
+			return $data;
+		} else { 
+			$error = curl_errno($ch);
+			curl_close($ch);
+			throw new WxPayException("curl出错，错误码:$error");
+		}
+	}
 }
 
 $test = new pay('wx426b3015555a46be','7813490da6f1265e4901ffb80afaa36f','1900009851','8934e7d15453e97507ef794cf7b0519d','http://xxx.com/');
