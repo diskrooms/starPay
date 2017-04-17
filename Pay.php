@@ -9,7 +9,7 @@ class pay{
 	private $payType = 'wx';                                   //支付类型
 	private $timeout = 6;                                     //curl超时时间 默认6s
 	
-	private function __construct($wxAppId,$wxAppSecret,$wxMchId,$wxMchKey,$wxNotify='',$payType='wx',$timeout=6){
+	public function __construct($wxAppId,$wxAppSecret,$wxMchId,$wxMchKey,$wxNotify='',$payType='wx',$timeout=6){
 	    $this->wxAppId = $wxAppId;
 	    $this->wxAppSecret = $wxAppSecret;
 	    $this->wxMchId = $wxMchId;
@@ -71,7 +71,7 @@ class pay{
 	 * @param $product_id      交易类型为 NATIVE 时,该值必传。此参数为二维码中包含的商品ID，商户自行定义
 	 * 
 	 */
-	private function unifiedOrder($body,$out_trade_no,$total_fee,$trade_type='JSAPI',$openId='',$product_id='',$notify=''){
+	public function unifiedOrder($body,$out_trade_no,$total_fee,$trade_type='JSAPI',$openId='',$product_id='',$notify=''){
 	    //校验参数
 	    if(empty($body)){
 	        throw new Exception("请求统一下单接口缺少参数body！");
@@ -109,19 +109,32 @@ class pay{
 	    );
 	    
 	    //生成xml字符串
+	    $xml = '<xml>';
+	    foreach ($parameters as $k=>$v){
+	        if(is_array($v)){
+	            $xml .= '<'.$k.'><![CDATA['.json_encode($v).']]></'.$k.'>';
+	        } else {
+	            $xml .= '<'.$k.'>'.$v.'</'.$k.'>';
+	          }
+	     }
+	    $xml .= '</xml>';
 	    
 	}
 	
 	/**
 	 * 签名算法
 	 */
-	
+	public static function sign($data=array()){
+	    //空的元素不参与签名
+	    $data = array_filter($data);
+	    ksort($data);
+	    
+	}
 	
 	/**
 	 * 生成少于32位的随机字符串
 	 */
-	private static function getNonceStr($length = 32)
-	{
+	private static function getNonceStr($length = 32){
 	    $chars = "abcdefghijklmnopqrstuvwxyz0123456789";
 	    $str ="";
 	    for ( $i = 0; $i < $length; $i++ )  {
@@ -129,4 +142,11 @@ class pay{
 	    }
 	    return $str;
 	}
+	
+	/**
+	 * 
+	 */
 }
+
+$test = new pay('wx426b3015555a46be','7813490da6f1265e4901ffb80afaa36f','1900009851','8934e7d15453e97507ef794cf7b0519d','http://xxx.com/');
+$test->unifiedOrder('test');
