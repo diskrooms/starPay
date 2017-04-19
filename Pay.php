@@ -37,8 +37,8 @@ class pay{
 	         //如果有code码则请求微信接口 https://api.weixin.qq.com/sns/oauth2/access_token 获取openId
 	       $wx_api_url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$this->wxAppId."&secret=".$this->wxAppSecret."&code=".$code."&grant_type=authorization_code";
 	       $ch = curl_init();
-	         //设置curl
-	       curl_setopt($ch, CURLOPT_TIMEOUT, $this->time);
+	       //设置curl
+	       curl_setopt($ch, CURLOPT_TIMEOUT, $this->timeout);
 	       curl_setopt($ch, CURLOPT_URL, $wx_api_url);
 	       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,FALSE); //不认证证书
 	       curl_setopt($ch, CURLOPT_SSL_VERIFYHOST,FALSE);
@@ -121,35 +121,35 @@ class pay{
 	    $xml .= '</xml>';
 	    
 	    $wx_api_url = 'https://api.mch.weixin.qq.com/pay/unifiedorder';
-	    $result = self::postXmlCurl($xml, $wx_api_url);
-	    //TODO分析返回结果
+	    $resultXml = self::postXmlCurl($xml, $wx_api_url);
+	    $resultArr = self::xmlToArray($resultXml);
+	    if(self::sign($resultArr) != $resultArr['sign']){
+	       throw new Exception("签名不正确");
+	    }
+	    return $resultArr;
 	}
 	
 	/**
-	 * 签名算法
+	 * 生成jsapi所需要的数据(参数和共享地址)
+	 * 
 	 */
-	private static function sign($data=array()){
-	    //空的元素不参与签名
-	    $data = array_filter($data);
-	    ksort($data);
-	    $signStr = '';
-	    foreach ($data as $k=>$v){
-	        $signStr .= $k.'='.$v.'&';
+	public function getJsApiData($body,$out_trade_no,$total_fee,$trade_type='JSAPI',$openId='',$product_id='',$notify=''){
+	    //获取统一支付接口数据
+	    $order = $this->unifiedOrder($body,$out_trade_no,$total_fee,$trade_type='JSAPI',$openId='',$product_id='',$notify='');
+	    if(empty($order['appid']) || empty($order['prepay_id'])){
+	        throw new Exception("统一下单请求失败");
 	    }
-	    $signStr .= 'key='.$this->wxMchKey;
-	    $sign = strtoupper(md5($signStr));
-	}
-	
-	/**
-	 * 生成少于32位的随机字符串
-	 */
-	private static function getNonceStr($length = 32){
-	    $chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-	    $str ="";
-	    for ( $i = 0; $i < $length; $i++ )  {
-	        $str .= substr($chars, mt_rand(0, strlen($chars)-1), 1);
-	    }
-	    return $str;
+	    //jsapi所需参数
+	    $jsApiParameter = array();
+	    $jsApiParameter['appId'] = $order['appid'];
+	    $jsApiParameter['timeStamp'] = time();
+	    $jsApiParameter['nonceStr'] = self::getNonceStr();
+	    $jsApiParameter['package'] = "prepay_id=".$order['prepay_id'];
+	    $jsApiParameter['signType'] = "MD5";
+	    $jsApiParameter['paySign'] = self::sign($jsApiParameter);
+	    //jsapi共享地址
+	    $editAddress = array();
+	    echo json_encode(array('jsApiParameter'=>$jsApiParameter,'editAddress'=>$editAddress));
 	}
 	
 	/**
@@ -168,14 +168,17 @@ class pay{
 		curl_setopt($ch, CURLOPT_TIMEOUT, $second);
 		
 		//如果有配置代理这里就设置代理
-		if(WxPayConfig::CURL_PROXY_HOST != "0.0.0.0" 
+		/* if(WxPayConfig::CURL_PROXY_HOST != "0.0.0.0" 
 			&& WxPayConfig::CURL_PROXY_PORT != 0){
 			curl_setopt($ch,CURLOPT_PROXY, WxPayConfig::CURL_PROXY_HOST);
 			curl_setopt($ch,CURLOPT_PROXYPORT, WxPayConfig::CURL_PROXY_PORT);
-		}
+		} */
 		curl_setopt($ch,CURLOPT_URL, $url);
-		curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,TRUE);
-		curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,2);//严格校验
+		//curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,TRUE);
+		//curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,2);//严格校验
+		curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,false);
+		curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,false);//非严格校验
+		
 		//设置header
 		curl_setopt($ch, CURLOPT_HEADER, FALSE);
 		//要求结果为字符串且输出到屏幕上
@@ -203,6 +206,57 @@ class pay{
 			curl_close($ch);
 			throw new WxPayException("curl出错，错误码:$error");
 		}
+	}
+	
+	/**
+	 * 签名算法
+	 */
+	private static function sign($data = array()){
+	    if(empty($data) || !is_array($data)){
+	        throw new Exception("数据不能为空");
+	    }
+	    if(isset($data['sign'])){
+	       //去除 sign
+	       unset($data['sign']);
+	    }
+	    //参数按键名字典 升序排列
+	    ksort($data);
+	    $signStr = '';
+	    foreach ($data as $k=>$v){
+	        //空值不参与签名
+	        if(!empty($v) && !is_array($v)){
+	            $signStr .= $k.'='.$v.'&';
+	        }
+	    }
+	    $signStr .= 'key='.$this->wxMchKey;
+	    $sign = strtoupper(md5($signStr));
+	    return $sign;
+	}
+	
+	
+	
+	/**
+	 * 生成少于32位的随机字符串
+	 */
+	private static function getNonceStr($length = 32){
+	    $chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+	    $str ="";
+	    for ( $i = 0; $i < $length; $i++ )  {
+	        $str .= substr($chars, mt_rand(0, strlen($chars)-1), 1);
+	    }
+	    return $str;
+	}
+	
+	/**
+	 * xml字符转换成array数组
+	 * @param  $xml xml字符串
+	 */
+	private function xmlToArray($xml){
+	    if(empty($xml)){
+	        throw new Exception("xml不能为空");
+	    }
+	    //simplexml_load_string 将xml解析成一个对象  先将其转换成json字符串 然后再将其转换成数组
+	    return json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)),true);
 	}
 }
 
