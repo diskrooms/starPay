@@ -1,9 +1,9 @@
-<?php
+﻿<?php
 class pay{
-	private $wxAppId = 'wx426b3015555a46be';                   //微信公众号支付 公众号appid
-	private $wxAppSecret = '7813490da6f1265e4901ffb80afaa36f'; //微信公众号支付 公众号appsecret
-	private $wxMchId = '1900009851';                           //微信商户平台 商户id
-	private $wxMchKey = '8934e7d15453e97507ef794cf7b0519d';    //微信商户平台 商户密钥
+	private $wxAppId = '';                                     //微信公众号支付 公众号appid
+	private $wxAppSecret = '';                                 //微信公众号支付 公众号appsecret
+	private $wxMchId = '';                                     //微信商户平台 商户id
+	private $wxMchKey = '';                                    //微信商户平台 商户密钥
 	private $wxNotify = '';                                    //微信支付回调地址
 	
 	private $payType = 'wx';                                   //支付类型
@@ -28,17 +28,17 @@ class pay{
 	public function getOpenId(){
 	    //TODO 校验appId和appsecret是否设置
 	    $code = addslashes(trim($_GET['code']));
-	    if(!isset($code)){
+	    if(!isset($code) || empty($code)){
 	         //没有code码则跳转到微信认证页面 https://open.weixin.qq.com/connect/oauth2/authorize 要求用户进行认证 (如果只需要获取openId,则scope设为snsapi_base静默模式,不需要用户授权)
-	       $request_url = urlencode($_SERVER['HTTP_URL']);
-	       $authorize_url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".$this->wxAppId."&redirect_uri=".$request_url."&response_type=code&scope=snsapi_base&state=STATE#wechat_redirect";
+	       $request_url = urlencode('http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'].$_SERVER['QUERY_STRING']);
+	       $authorize_url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".$this->wxAppId."&redirect_uri=".$request_url."&response_type=code&scope=snsapi_base&state=STATE&connect_redirect=1#wechat_redirect";
 	       header('Location:'.$authorize_url);
 	    } else {
 	         //如果有code码则请求微信接口 https://api.weixin.qq.com/sns/oauth2/access_token 获取openId
 	       $wx_api_url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$this->wxAppId."&secret=".$this->wxAppSecret."&code=".$code."&grant_type=authorization_code";
 	       $ch = curl_init();
-	       //设置curl
-	       curl_setopt($ch, CURLOPT_TIMEOUT, $this->timeout);
+	         //设置curl
+	       curl_setopt($ch, CURLOPT_TIMEOUT, $this->time);
 	       curl_setopt($ch, CURLOPT_URL, $wx_api_url);
 	       curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,FALSE); //不认证证书
 	       curl_setopt($ch, CURLOPT_SSL_VERIFYHOST,FALSE);
@@ -82,6 +82,7 @@ class pay{
 	    if(empty($total_fee)){
 	        throw new Exception("请求统一下单接口缺少参数total_fee！");
 	    }
+	    
 	    if(($trade_type == 'JSAPI') && empty($openId)){
 	        throw new Exception("交易类型为 JSAPI 时 缺少参数openId！");
 	    }
@@ -121,35 +122,36 @@ class pay{
 	    $xml .= '</xml>';
 	    
 	    $wx_api_url = 'https://api.mch.weixin.qq.com/pay/unifiedorder';
-	    $resultXml = self::postXmlCurl($xml, $wx_api_url);
-	    $resultArr = self::xmlToArray($resultXml);
-	    if(self::sign($resultArr) != $resultArr['sign']){
-	       throw new Exception("签名不正确");
-	    }
-	    return $resultArr;
+	    $result = self::postXmlCurl($xml, $wx_api_url);
+	    //TODO分析返回结果
+	    echo json_encode($result);
 	}
 	
 	/**
-	 * 生成jsapi所需要的数据(参数和共享地址)
-	 * 
+	 * 签名算法
 	 */
-	public function getJsApiData($body,$out_trade_no,$total_fee,$trade_type='JSAPI',$openId='',$product_id='',$notify=''){
-	    //获取统一支付接口数据
-	    $order = $this->unifiedOrder($body,$out_trade_no,$total_fee,$trade_type='JSAPI',$openId='',$product_id='',$notify='');
-	    if(empty($order['appid']) || empty($order['prepay_id'])){
-	        throw new Exception("统一下单请求失败");
+	private static function sign($data=array()){
+	    //空的元素不参与签名
+	    $data = array_filter($data);
+	    ksort($data);
+	    $signStr = '';
+	    foreach ($data as $k=>$v){
+	        $signStr .= $k.'='.$v.'&';
 	    }
-	    //jsapi所需参数
-	    $jsApiParameter = array();
-	    $jsApiParameter['appId'] = $order['appid'];
-	    $jsApiParameter['timeStamp'] = time();
-	    $jsApiParameter['nonceStr'] = self::getNonceStr();
-	    $jsApiParameter['package'] = "prepay_id=".$order['prepay_id'];
-	    $jsApiParameter['signType'] = "MD5";
-	    $jsApiParameter['paySign'] = self::sign($jsApiParameter);
-	    //jsapi共享地址
-	    $editAddress = array();
-	    echo json_encode(array('jsApiParameter'=>$jsApiParameter,'editAddress'=>$editAddress));
+	    $signStr .= 'key='.$this->wxMchKey;
+	    $sign = strtoupper(md5($signStr));
+	}
+	
+	/**
+	 * 生成少于32位的随机字符串
+	 */
+	private static function getNonceStr($length = 32){
+	    $chars = "abcdefghijklmnopqrstuvwxyz0123456789";
+	    $str ="";
+	    for ( $i = 0; $i < $length; $i++ )  {
+	        $str .= substr($chars, mt_rand(0, strlen($chars)-1), 1);
+	    }
+	    return $str;
 	}
 	
 	/**
@@ -168,17 +170,14 @@ class pay{
 		curl_setopt($ch, CURLOPT_TIMEOUT, $second);
 		
 		//如果有配置代理这里就设置代理
-		/* if(WxPayConfig::CURL_PROXY_HOST != "0.0.0.0" 
+		if(WxPayConfig::CURL_PROXY_HOST != "0.0.0.0" 
 			&& WxPayConfig::CURL_PROXY_PORT != 0){
 			curl_setopt($ch,CURLOPT_PROXY, WxPayConfig::CURL_PROXY_HOST);
 			curl_setopt($ch,CURLOPT_PROXYPORT, WxPayConfig::CURL_PROXY_PORT);
-		} */
+		}
 		curl_setopt($ch,CURLOPT_URL, $url);
-		//curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,TRUE);
-		//curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,2);//严格校验
-		curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,false);
-		curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,false);//非严格校验
-		
+		curl_setopt($ch,CURLOPT_SSL_VERIFYPEER,TRUE);
+		curl_setopt($ch,CURLOPT_SSL_VERIFYHOST,2);//严格校验
 		//设置header
 		curl_setopt($ch, CURLOPT_HEADER, FALSE);
 		//要求结果为字符串且输出到屏幕上
@@ -201,64 +200,14 @@ class pay{
 		if($data){
 			curl_close($ch);
 			return $data;
-		} else { 
+		} else {
 			$error = curl_errno($ch);
 			curl_close($ch);
 			throw new WxPayException("curl出错，错误码:$error");
 		}
 	}
-	
-	/**
-	 * 签名算法
-	 */
-	private static function sign($data = array()){
-	    if(empty($data) || !is_array($data)){
-	        throw new Exception("数据不能为空");
-	    }
-	    if(isset($data['sign'])){
-	       //去除 sign
-	       unset($data['sign']);
-	    }
-	    //参数按键名字典 升序排列
-	    ksort($data);
-	    $signStr = '';
-	    foreach ($data as $k=>$v){
-	        //空值不参与签名
-	        if(!empty($v) && !is_array($v)){
-	            $signStr .= $k.'='.$v.'&';
-	        }
-	    }
-	    $signStr .= 'key='.$this->wxMchKey;
-	    $sign = strtoupper(md5($signStr));
-	    return $sign;
-	}
-	
-	
-	
-	/**
-	 * 生成少于32位的随机字符串
-	 */
-	private static function getNonceStr($length = 32){
-	    $chars = "abcdefghijklmnopqrstuvwxyz0123456789";
-	    $str ="";
-	    for ( $i = 0; $i < $length; $i++ )  {
-	        $str .= substr($chars, mt_rand(0, strlen($chars)-1), 1);
-	    }
-	    return $str;
-	}
-	
-	/**
-	 * xml字符转换成array数组
-	 * @param  $xml xml字符串
-	 */
-	private function xmlToArray($xml){
-	    if(empty($xml)){
-	        throw new Exception("xml不能为空");
-	    }
-	    //simplexml_load_string 将xml解析成一个对象  先将其转换成json字符串 然后再将其转换成数组
-	    return json_decode(json_encode(simplexml_load_string($xml, 'SimpleXMLElement', LIBXML_NOCDATA)),true);
-	}
 }
 
-$test = new pay('wx426b3015555a46be','7813490da6f1265e4901ffb80afaa36f','1900009851','8934e7d15453e97507ef794cf7b0519d','http://xxx.com/');
-$test->unifiedOrder('test');
+$pay = new pay('wx67e0908c32511cae','359845b30326161f347bd73f8f86a97f','1900009851','8934e7d15453e97507ef794cf7b0519d','http://xxx.com/');
+$openId = $pay->getOpenId();
+//print_r($pay->unifiedOrder('test','10000',1,'JSAPI',$openId));
