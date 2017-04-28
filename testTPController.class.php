@@ -9,10 +9,10 @@ use Think\Controller;
 class testTPController extends Controller {
 	public function _initialize() {
 		Vendor('Pay.starPay');
-		$wxAppId = 'xxx';
-		$wxAppSecret = 'xxx';
-		$wxMchId = 'xxx';
-		$wxMchKey = 'xxx';
+		$wxAppId = 'xxx';						//你的公众号 appid
+		$wxAppSecret = 'xxx';					//你的公众号 appsecret
+		$wxMchId = 'xxx';						//你的商户id
+		$wxMchKey = 'xxx';						//你的商户平台密钥
 		$this->pay = new pay($wxAppId,$wxAppSecret,$wxMchId,$wxMchKey);
 	}
 	
@@ -22,8 +22,8 @@ class testTPController extends Controller {
 			$order = time().mt_rand(10000,20000);
 			
 			$params = array(
-				'body'=>'test',
-				'out_trade_no'=>$order,
+				'body'=>'test',					//订单标题
+				'out_trade_no'=>$order,			//
 				'trade_type'=>'JSAPI',
 				'total_fee'=>1,
 				'openid'=>$openId,
