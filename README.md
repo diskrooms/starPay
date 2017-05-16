@@ -29,7 +29,8 @@ ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 Th
 --------------------------------
 *************文档***********
 --------------------------------
-所有测试的样例代码都在Application\Home\Controller\TestTPController.class.php中
+所有测试的样例代码都在Application\Home\Controller\TestTPController.class.php中，这里不再逐行说明。
+
 微信支付初始化类库
 Vendor('starPay.starPay');
 $config = array(
@@ -51,6 +52,12 @@ API文档
  */
   $this->pay->getOpenId()
 
+/**
+ * 满足分布式多进程场景的订单生成 有效避免生成重复订单号
+ * @return String 商户自主生成订单号
+ */
+ $this->pay->createOrder()
+ 
 /**
  * 统一下单
  * 调用微信统一下单接口 https://api.mch.weixin.qq.com/pay/unifiedorder
@@ -95,5 +102,10 @@ API文档
 注意:微信公众平台申请的商户id只能用于微信公众号支付、扫二维码支付和刷卡支付，APP微信支付需要去微信开放平台单独申请商户id。
 公众号支付需要微信用户的openid，如果此前用户已经进行过微信的网页登陆，那么数据库中保存有用户的openid，就无须再次拉取用户授权进行用户openid的获取。
 
+微信APP支付
+测试地址:http://域名/index.php/Home/testTP/testAppPay
+
+微信NATIVE原生扫码支付
+测试地址:http://域名/index.php/Home/testTP/testNativePay
 
 
