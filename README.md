@@ -18,28 +18,28 @@ starPay在移动互联网的大潮下应运而生。
 
 ### 目前已支持的框架：
     ThinkPHP3.2.3
-
+    
 后续会增加对其他PHP框架的支持，如果你有其他框架或者不同框架版本的需求，欢迎随时联系我。
 根目录下的 starPay.php 是类库核心文件
 ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 ThinkPHP 框架完整代码
 
---------------------------------
+
 # 文档
---------------------------------
+
 所有测试的样例代码都在Application\Home\Controller\TestTPController.class.php中，这里不再逐行说明。
 
 微信支付初始化类库
-<code>
-Vendor('starPay.starPay');
-$config = array(
-	'appid'=>'',		//您的公众号 appid 或者应用appid
-	'appsecret'=>'',	//您的公众号 appsecret
-	'type'=>'wx',		//支付类型 wx微信支付 alipay支付宝支付 缺省支付宝支付
-	'mchid'=>'',		//您的商户id
-	'mchkey'=>''		//您的商户平台密钥
-);
-$this->pay = new \pay($config);
-</code>
+
+	Vendor('starPay.starPay');
+	$config = array(
+		'appid'=>'',		//您的公众号 appid 或者应用appid
+		'appsecret'=>'',	//您的公众号 appsecret
+		'type'=>'wx',		//支付类型 wx微信支付 alipay支付宝支付 缺省支付宝支付
+		'mchid'=>'',		//您的商户id
+		'mchkey'=>''		//您的商户平台密钥
+	);
+	$this->pay = new \pay($config);
+
 
 API文档
 /*
