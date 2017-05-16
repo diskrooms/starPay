@@ -20,7 +20,7 @@ starPay在移动互联网的大潮下应运而生。
 后续会根据实际需要逐渐增加支付功能，如果你在项目中有其他的支付需要，欢迎随时联系我。
 
 目前已支持的框架：
-    ThinkPHP.2.3
+    ThinkPHP3.2.3
 
 后续会增加对其他PHP框架的支持，如果你有其他框架或者不同框架版本的需求，欢迎随时联系我。
 根目录下的 starPay.php 是类库核心文件
@@ -29,4 +29,30 @@ thinkphp3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 th
 --------------------------------
 **********文档*****************
 --------------------------------
-敬请期待....
+
+//微信公众号JSAPI支付
+	public function testJSPay(){
+		//编写商户自己的业务逻辑(接收前端参数)
+		//如果商户数据库中已保存有用户的openid 可无需再调用以下函数来获取用户openid
+		$openId = $this->pay->getOpenId();
+		try {
+			$order = time().mt_rand(10000,20000);
+			
+			$params = array(
+				'body'=>'test',					//订单标题
+				'out_trade_no'=>$order,			//商家自主订单号
+				'trade_type'=>'JSAPI',			//公众号支付
+				'total_fee'=>1,
+				'openid'=>$openId,
+				'notify_url'=>'http://商家的域名/testTP/testNotify',
+			);
+			$order = $this->pay->unifiedOrder($params);
+			//print_r($order);
+			$this->assign('jsPayParameters',$this->pay->getJSPayParameters($order));
+			$this->assign('editAddress',json_encode(''));
+			$this->display();
+		} catch(Exception $e){
+			print $e->getMessage();
+		}
+		$this->display();
+	}
