@@ -29,7 +29,7 @@ thinkphp3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 th
 --------------------------------
 **********文档*****************
 --------------------------------
-
+<code>
 //微信公众号JSAPI支付
 public function testJSPay(){
 	//编写商户自己的业务逻辑(接收前端参数)
@@ -56,3 +56,4 @@ public function testJSPay(){
 	}
 	$this->display();
 }
+</code>
