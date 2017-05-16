@@ -32,6 +32,7 @@ ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 Th
 所有测试的样例代码都在Application\Home\Controller\TestTPController.class.php中，这里不再逐行说明。
 
 微信支付初始化类库
+<code>
 Vendor('starPay.starPay');
 $config = array(
 	'appid'=>'',					//您的公众号 appid 或者应用appid
@@ -41,9 +42,9 @@ $config = array(
 	'mchkey'=>''					//您的商户平台密钥
 );
 $this->pay = new \pay($config);
-
+</code>
 API文档
-/**
+/*
  * 获取微信用户的openId
  * 如果请求该接口的域名与微信公众平台填写的认证域名不一致,则会产生跨域的问题而无法正常获取到openid
  * 这时就要想其他办法获取用户的openId,比如从数据库查找已经在用户登录模块保存好的openId
@@ -52,13 +53,13 @@ API文档
  */
   $this->pay->getOpenId()
 
-/**
+/*
  * 满足分布式多进程场景的订单生成 有效避免生成重复订单号
  * @return String 商户自主生成订单号
  */
  $this->pay->createOrder()
  
-/**
+/*
  * 统一下单
  * 调用微信统一下单接口 https://api.mch.weixin.qq.com/pay/unifiedorder
  * @param $payParameters 订单参数
@@ -66,31 +67,31 @@ API文档
  */
   $this->pay->unifiedOrder($payParameters='')
  
- /**
- * 收到异步数据后向微信发送验签成功信息
- */
+ /*
+  * 收到异步数据后向微信发送验签成功信息
+  */
   $this->pay->notifySuccess()
   
- /**
- * 收到异步数据后向微信发送验签失败信息
- */
+ /*
+  * 收到异步数据后向微信发送验签失败信息
+  */
    $this->pay->notifyFail()
  
- /**
- * 获取微信公众号支付所需的参数
- * @param $order统一下单接口返回的数据
- * @return JSAPI 支付所需的数据，然后以对象的形式渲染到前端的 JS 函数中去，以便调起微信进行支付
- */
+ /*
+  * 获取微信公众号支付所需的参数
+  * @param $order统一下单接口返回的数据
+  * @return JSAPI 支付所需的数据，然后以对象的形式渲染到前端的 JS 函数中去，以便调起微信进行支付
+  */
   $this->pay->getJSPayParameters($order='')
   
-/**
+/*
  * 获取APP支付所需的参数
  * @param $order 统一下单接口返回的数据
  * @return APP 支付所需的数据
  */
  $this->pay->getAppPayParameters($order='')
  
- /**
+ /*
   * 获取NATIVE原生扫码支付的二维码
   * @param $order 统一下单接口返回的数据
   */
