@@ -1,0 +1,9 @@
+[ 2017-05-08T08:33:43+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000051s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001011s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.023074s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.023275s ]
+ERR: subject参数不能为空
+

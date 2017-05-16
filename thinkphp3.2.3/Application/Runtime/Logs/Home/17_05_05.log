@@ -1,0 +1,417 @@
+[ 2017-05-05T12:59:29+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000191s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.004516s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.004667s ]
+ERR: 非法操作:index
+
+[ 2017-05-05T12:59:39+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000178s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001302s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001475s ]
+ERR: 请求统一下单接口缺少参数notify！
+
+[ 2017-05-05T13:02:01+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000163s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000609s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000740s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.011942s ]
+INFO: [ app_end ] --END-- [ RunTime:0.012141s ]
+
+[ 2017-05-05T13:02:49+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000182s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000745s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000973s ]
+NOTIC: [8] Use of undefined constant JSON_UNESCAPE_UNICODE - assumed 'JSON_UNESCAPE_UNICODE' C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 175 行.
+NOTIC: [2] json_encode() expects parameter 2 to be long, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 175 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000858s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001013s ]
+
+[ 2017-05-05T13:03:23+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000160s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000594s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000726s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000812s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-05-05T13:04:38+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000055s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000280s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001039s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001435s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001079s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001305s ]
+
+[ 2017-05-05T13:06:33+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000169s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000624s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000774s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000781s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000950s ]
+
+[ 2017-05-05T13:07:02+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000034s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000232s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000657s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000796s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000710s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000859s ]
+
+[ 2017-05-05T13:07:16+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000042s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000246s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000855s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001065s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000756s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000935s ]
+
+[ 2017-05-05T13:08:34+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000170s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000747s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000933s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000747s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000905s ]
+
+[ 2017-05-05T13:08:50+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000251s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000754s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000958s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000738s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000888s ]
+
+[ 2017-05-05T13:10:02+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000051s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000263s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000720s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000893s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001081s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001241s ]
+
+[ 2017-05-05T13:10:12+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000163s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001659s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001894s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000714s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000864s ]
+
+[ 2017-05-05T13:10:33+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000052s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000458s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001002s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001250s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000764s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000948s ]
+
+[ 2017-05-05T13:10:48+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000037s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000252s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000639s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000796s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000760s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000929s ]
+
+[ 2017-05-05T14:03:29+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000174s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000967s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001159s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000785s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000939s ]
+
+[ 2017-05-05T21:49:36+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000036s ]
+INFO: [ app_init ] --END-- [ RunTime:0.001100s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.019614s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.019760s ]
+NOTIC: [8] Undefined index: appid C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 336 行.
+NOTIC: [8] Undefined index: mch_id C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 337 行.
+NOTIC: [8] Undefined index: prepay_id C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 338 行.
+NOTIC: [8] Undefined index: nonce_str C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 340 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.009396s ]
+INFO: [ app_end ] --END-- [ RunTime:0.009560s ]
+
+[ 2017-05-05T21:50:24+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000055s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000826s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000655s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000808s ]
+NOTIC: [8] Undefined index: appid C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 336 行.
+NOTIC: [8] Undefined index: mch_id C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 337 行.
+NOTIC: [8] Undefined index: prepay_id C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 338 行.
+NOTIC: [8] Undefined index: nonce_str C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 340 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000794s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000937s ]
+
+[ 2017-05-05T21:50:59+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000042s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000248s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000598s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000737s ]
+NOTIC: [8] Undefined index: appid C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 336 行.
+NOTIC: [8] Undefined index: mch_id C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 337 行.
+NOTIC: [8] Undefined index: prepay_id C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 338 行.
+NOTIC: [8] Undefined index: nonce_str C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 340 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001041s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001260s ]
+
+[ 2017-05-05T21:52:31+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000184s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000679s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000820s ]
+ERR: 无效的统一下单数据
+
+[ 2017-05-05T21:54:03+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000175s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000932s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001163s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000810s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000971s ]
+
+[ 2017-05-05T21:55:13+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000047s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000281s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001305s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001545s ]
+ERR: curl出错，错误码:0
+
+[ 2017-05-05T21:55:36+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000167s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000582s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000716s ]
+ERR: curl出错，错误码:0
+
+[ 2017-05-05T21:55:49+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000048s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000343s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000624s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000764s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001106s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001378s ]
+
+[ 2017-05-05T21:56:26+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000167s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000621s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000776s ]
+ERR: curl出错，错误码:0
+
+[ 2017-05-05T21:57:18+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000047s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000270s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000720s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000877s ]
+ERR: curl出错，错误码:0
+
+[ 2017-05-05T21:59:29+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000192s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000714s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000875s ]
+ERR: 无效的统一下单数据
+
+[ 2017-05-05T21:59:45+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAppPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000046s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000285s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000773s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000954s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000727s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000874s ]
+
+[ 2017-05-05T22:02:35+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testNativePay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000080s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000335s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001111s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001368s ]
+ERR: 交易类型为 NATIVE 时 缺少参数product_id！
+
+[ 2017-05-05T22:03:29+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testNativePay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000169s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000615s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000782s ]
+ERR: 无效的统一下单数据
+
+[ 2017-05-05T22:10:27+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testNativePay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000168s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001335s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001585s ]
+ERR: 无效的统一下单数据
+
+[ 2017-05-05T22:11:07+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testNativePay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000193s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000669s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000814s ]
+ERR: 无效的统一下单数据
+
+[ 2017-05-05T22:11:50+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testNativePay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000162s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001551s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001829s ]
+ERR: invalid spbill_create_ip
+
+[ 2017-05-05T22:12:01+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testNativePay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000041s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000278s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000915s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001149s ]
+ERR: invalid spbill_create_ip
+
+[ 2017-05-05T22:12:44+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testNativePay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000047s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000295s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000715s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000862s ]
+ERR: 您没有原生支付权限
+
+[ 2017-05-05T22:13:10+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testNativePay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000046s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000306s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000658s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000807s ]
+
+[ 2017-05-05T22:13:20+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testNativePay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000051s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000289s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000883s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001086s ]
+ERR: 您没有原生支付权限
+
+[ 2017-05-05T22:13:34+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testNativePay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000047s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000282s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000965s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001153s ]
+ERR: 商户号mch_id与appid不匹配
+
+[ 2017-05-05T22:13:56+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testNativePay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000173s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001080s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001334s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000732s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000920s ]
+
+[ 2017-05-05T22:14:29+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testNativePay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000167s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000742s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000930s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000782s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000932s ]
+

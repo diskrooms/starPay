@@ -1,0 +1,772 @@
+[ 2017-05-15T22:43:26+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testNativePay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.003005s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.024940s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.025186s ]
+ERR: curl出错，错误码:0
+
+[ 2017-05-15T22:43:38+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000049s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000283s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001034s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001303s ]
+ERR: private_key_path参数不能为空
+
+[ 2017-05-15T22:52:57+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000177s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000567s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000697s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] file_get_contents(C:\wamp\www\php\starPay\thinkphp3.2.3/rsa_private_key.pem): failed to open stream: No such file or directory C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 610 行.
+NOTIC: [2] openssl_sign(): supplied key param cannot be coerced into a private key C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 613 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, boolean given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 617 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.014609s ]
+INFO: [ app_end ] --END-- [ RunTime:0.014844s ]
+
+[ 2017-05-15T22:54:37+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000060s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000336s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000564s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000705s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] file_get_contents(C:\wamp\www\php\starPay\thinkphp3.2.3/rsa_private_key.pem): failed to open stream: No such file or directory C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 610 行.
+NOTIC: [2] openssl_sign(): supplied key param cannot be coerced into a private key C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 613 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, boolean given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 617 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000819s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001043s ]
+
+[ 2017-05-15T22:54:40+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000048s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000230s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000681s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000888s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] file_get_contents(C:\wamp\www\php\starPay\thinkphp3.2.3/rsa_private_key.pem): failed to open stream: No such file or directory C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 610 行.
+NOTIC: [2] openssl_sign(): supplied key param cannot be coerced into a private key C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 613 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, boolean given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 617 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000684s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000882s ]
+
+[ 2017-05-15T22:54:49+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000041s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000249s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000683s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000875s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] file_get_contents(C:\wamp\www\php\starPay\thinkphp3.2.3/rsa_private_key.pem): failed to open stream: No such file or directory C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 610 行.
+NOTIC: [2] openssl_sign(): supplied key param cannot be coerced into a private key C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 613 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, boolean given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 617 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000793s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001067s ]
+
+[ 2017-05-15T22:55:33+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000045s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000270s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000986s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001219s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] file_get_contents(C:\wamp\www\php\starPay\thinkphp3.2.3/rsa_private_key.pem): failed to open stream: No such file or directory C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 610 行.
+NOTIC: [2] openssl_sign(): supplied key param cannot be coerced into a private key C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 613 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, boolean given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 617 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000964s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001198s ]
+
+[ 2017-05-15T22:56:32+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000085s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000475s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000786s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001031s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] file_get_contents(C:\wamp\www\php\starPay\thinkphp3.2.3/rsa_private_key.pem): failed to open stream: No such file or directory C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 610 行.
+NOTIC: [2] openssl_sign(): supplied key param cannot be coerced into a private key C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 613 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, boolean given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 617 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000847s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001083s ]
+
+[ 2017-05-15T22:59:37+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000033s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000206s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000811s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000981s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] file_get_contents(C:\wamp\www\php\starPay\thinkphp3.2.3/rsa_private_key.pem): failed to open stream: No such file or directory C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 610 行.
+NOTIC: [2] openssl_sign(): supplied key param cannot be coerced into a private key C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 613 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, boolean given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 617 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001175s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001466s ]
+
+[ 2017-05-15T23:01:32+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000048s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000283s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000951s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001212s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_sign(): supplied key param cannot be coerced into a private key C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 613 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, boolean given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 617 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000514s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000644s ]
+
+[ 2017-05-15T23:02:06+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000046s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000274s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000961s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001204s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_sign(): supplied key param cannot be coerced into a private key C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 613 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, boolean given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 617 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000613s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000743s ]
+
+[ 2017-05-15T23:02:40+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000047s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000279s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000812s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001046s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_sign(): supplied key param cannot be coerced into a private key C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 616 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, boolean given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 620 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000760s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000981s ]
+
+[ 2017-05-15T23:03:15+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000051s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000307s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000837s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001079s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_sign(): supplied key param cannot be coerced into a private key C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 615 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, boolean given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 619 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000873s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001134s ]
+
+[ 2017-05-15T23:04:31+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000048s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000293s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000997s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001257s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_sign(): supplied key param cannot be coerced into a private key C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 616 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, boolean given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 620 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000941s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001179s ]
+
+[ 2017-05-15T23:04:42+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000169s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000771s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_sign(): supplied key param cannot be coerced into a private key C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 616 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, boolean given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 620 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000758s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000977s ]
+
+[ 2017-05-15T23:04:57+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000049s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000287s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001270s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001607s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_sign(): supplied key param cannot be coerced into a private key C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 617 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, boolean given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 621 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000890s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001134s ]
+
+[ 2017-05-15T23:05:17+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000155s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000432s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000678s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000849s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_sign(): supplied key param cannot be coerced into a private key C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 617 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, boolean given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 621 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000548s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000702s ]
+
+[ 2017-05-15T23:06:25+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000047s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000289s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001243s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001376s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_sign(): supplied key param cannot be coerced into a private key C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 617 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, boolean given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 621 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.002337s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002672s ]
+
+[ 2017-05-15T23:07:15+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000044s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000268s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001035s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001172s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_sign(): supplied key param cannot be coerced into a private key C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 617 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, boolean given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 621 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001518s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001719s ]
+
+[ 2017-05-15T23:07:30+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000203s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001423s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001626s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_sign(): supplied key param cannot be coerced into a private key C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 617 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, boolean given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 621 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001506s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001727s ]
+
+[ 2017-05-15T23:09:35+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000167s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001170s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001409s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_sign(): supplied key param cannot be coerced into a private key C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 617 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, boolean given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 621 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001269s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001509s ]
+
+[ 2017-05-15T23:10:14+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000050s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000297s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001147s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001398s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_sign(): supplied key param cannot be coerced into a private key C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 617 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, boolean given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 621 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000835s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001009s ]
+
+[ 2017-05-15T23:11:33+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000167s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000928s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001115s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+
+[ 2017-05-15T23:17:28+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000160s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000673s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000801s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+
+[ 2017-05-15T23:19:44+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000169s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000763s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000901s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+
+[ 2017-05-15T23:20:41+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000045s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000304s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001186s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001599s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+
+[ 2017-05-15T23:24:43+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000176s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001323s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001473s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 626 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001617s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001857s ]
+
+[ 2017-05-15T23:25:57+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000157s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000892s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001028s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 626 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001353s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001554s ]
+
+[ 2017-05-15T23:27:47+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000188s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000705s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000834s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 626 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001206s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001453s ]
+
+[ 2017-05-15T23:29:31+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000048s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000318s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001084s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001316s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 626 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001263s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001501s ]
+
+[ 2017-05-15T23:36:38+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000045s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000274s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001107s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001334s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 630 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001285s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001527s ]
+
+[ 2017-05-15T23:49:20+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000046s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000280s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001173s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001528s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 650 行.
+
+[ 2017-05-15T23:49:38+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000163s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001526s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001821s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 650 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000879s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001020s ]
+
+[ 2017-05-15T23:50:47+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000045s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000267s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001438s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001711s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 651 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001209s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001459s ]
+
+[ 2017-05-15T23:50:54+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000049s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000301s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001005s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001222s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 651 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001154s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001380s ]
+
+[ 2017-05-15T23:51:02+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000173s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000903s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001071s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 651 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001271s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001502s ]
+
+[ 2017-05-15T23:51:03+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000052s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000310s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001232s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001479s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 651 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001227s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001448s ]
+
+[ 2017-05-15T23:51:04+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000046s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000267s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001127s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001368s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 651 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000842s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000976s ]
+
+[ 2017-05-15T23:51:05+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000160s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000875s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001063s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 651 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000827s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000960s ]
+
+[ 2017-05-15T23:51:06+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000030s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000166s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000874s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001019s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 651 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001291s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001527s ]
+
+[ 2017-05-15T23:51:07+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000162s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000720s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000852s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 651 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001618s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001881s ]
+
+[ 2017-05-15T23:51:08+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000163s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000748s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000888s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 651 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001678s ]
+INFO: [ app_end ] --END-- [ RunTime:0.002039s ]
+
+[ 2017-05-15T23:51:08+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testNativePay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000162s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000803s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000950s ]
+ERR: curl出错，错误码:0
+
+[ 2017-05-15T23:51:09+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testNativePay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000027s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000157s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000657s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000827s ]
+ERR: curl出错，错误码:0
+
+[ 2017-05-15T23:51:09+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testNativePay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000048s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000278s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001234s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001628s ]
+ERR: curl出错，错误码:0
+
+[ 2017-05-15T23:51:11+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000165s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000745s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000887s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 651 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001588s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001826s ]
+
+[ 2017-05-15T23:52:03+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000028s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000164s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001220s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001461s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 651 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001169s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001393s ]
+
+[ 2017-05-15T23:53:44+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000067s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000395s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001105s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001345s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 651 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001101s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001318s ]
+
+[ 2017-05-15T23:53:45+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000271s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000991s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001175s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 651 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.000834s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000968s ]
+
+[ 2017-05-15T23:55:02+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000043s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000278s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001009s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001208s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 651 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001286s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001514s ]
+
+[ 2017-05-15T23:55:12+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000045s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000278s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001181s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001413s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 651 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001352s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001607s ]
+
+[ 2017-05-15T23:55:14+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000047s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000282s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001080s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001235s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 651 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001210s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001361s ]
+
+[ 2017-05-15T23:55:14+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testNativePay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000029s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000165s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000768s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000903s ]
+ERR: curl出错，错误码:0
+
+[ 2017-05-15T23:55:17+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000049s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000272s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001199s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001429s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 651 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001247s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001445s ]
+
+[ 2017-05-15T23:58:42+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000046s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000274s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000741s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000877s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 650 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001326s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001582s ]
+
+[ 2017-05-15T23:59:00+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000046s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000288s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.001304s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001578s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+NOTIC: [2] openssl_free_key() expects parameter 1 to be resource, string given C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 650 行.
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTraceBehavior [ RunTime:0.001181s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001407s ]
+
+[ 2017-05-15T23:59:37+08:00 ] ::1 /php/starPay/thinkphp3.2.3/Home/TestTP/testAlipayWapPay
+INFO: [ app_init ] --START--
+INFO: Run Behavior\BuildLiteBehavior [ RunTime:0.000032s ]
+INFO: [ app_init ] --END-- [ RunTime:0.000188s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCacheBehavior [ RunTime:0.000769s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000918s ]
+NOTIC: [8] Undefined index: return_url C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 551 行.
+NOTIC: [8] Undefined index: auth_token C:\wamp\www\php\starPay\thinkphp3.2.3\ThinkPHP\Library\Vendor\starPay\starPay.php 第 555 行.
+
