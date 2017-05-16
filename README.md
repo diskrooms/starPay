@@ -31,28 +31,28 @@ thinkphp3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 th
 --------------------------------
 
 //微信公众号JSAPI支付
-	public function testJSPay(){
-		//编写商户自己的业务逻辑(接收前端参数)
-		//如果商户数据库中已保存有用户的openid 可无需再调用以下函数来获取用户openid
-		$openId = $this->pay->getOpenId();
-		try {
-			$order = time().mt_rand(10000,20000);
-			
-			$params = array(
-				'body'=>'test',					//订单标题
-				'out_trade_no'=>$order,			//商家自主订单号
-				'trade_type'=>'JSAPI',			//公众号支付
-				'total_fee'=>1,
-				'openid'=>$openId,
-				'notify_url'=>'http://商家的域名/testTP/testNotify',
-			);
-			$order = $this->pay->unifiedOrder($params);
-			//print_r($order);
-			$this->assign('jsPayParameters',$this->pay->getJSPayParameters($order));
-			$this->assign('editAddress',json_encode(''));
-			$this->display();
-		} catch(Exception $e){
-			print $e->getMessage();
-		}
+public function testJSPay(){
+	//编写商户自己的业务逻辑(接收前端参数)
+	//如果商户数据库中已保存有用户的openid 可无需再调用以下函数来获取用户openid
+	$openId = $this->pay->getOpenId();
+	try {
+		$order = time().mt_rand(10000,20000);
+
+		$params = array(
+			'body'=>'test',					//订单标题
+			'out_trade_no'=>$order,			//商家自主订单号
+			'trade_type'=>'JSAPI',			//公众号支付
+			'total_fee'=>1,
+			'openid'=>$openId,
+			'notify_url'=>'http://商家的域名/testTP/testNotify',
+		);
+		$order = $this->pay->unifiedOrder($params);
+		//print_r($order);
+		$this->assign('jsPayParameters',$this->pay->getJSPayParameters($order));
+		$this->assign('editAddress',json_encode(''));
 		$this->display();
+	} catch(Exception $e){
+		print $e->getMessage();
 	}
+	$this->display();
+}
