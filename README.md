@@ -43,6 +43,7 @@ $config = array(
 );
 $this->pay = new \pay($config);
 </code>
+
 API文档
 /*
  * 获取微信用户的openId
