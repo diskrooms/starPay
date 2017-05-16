@@ -30,10 +30,7 @@ thinkphp3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 th
 **********文档*****************
 --------------------------------
 <code>
-//微信公众号JSAPI支付
 public function testJSPay(){
-	//编写商户自己的业务逻辑(接收前端参数)
-	//如果商户数据库中已保存有用户的openid 可无需再调用以下函数来获取用户openid
 	$openId = $this->pay->getOpenId();
 	try {
 		$order = time().mt_rand(10000,20000);
