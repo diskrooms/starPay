@@ -18,7 +18,7 @@ starPay在移动互联网的大潮下应运而生。
 
 ### 目前已支持的框架：
     ThinkPHP3.2.3
-    
+
 后续会增加对其他PHP框架的支持，如果你有其他框架或者不同框架版本的需求，欢迎随时联系我。
 根目录下的 starPay.php 是类库核心文件
 ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 ThinkPHP 框架完整代码
