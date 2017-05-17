@@ -26,7 +26,8 @@ ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 Th
 # 文档
 所有测试的样例代码都在Application\Home\Controller\TestTPController.class.php中，这里不再逐行说明。
 
-### 微信支付初始化类库
+### 微信
+#### 微信支付初始化类库
 
 	Vendor('starPay.starPay');
 	$config = array(
@@ -39,7 +40,7 @@ ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 Th
 	$this->pay = new \pay($config);
 
 
-### 微信支付API文档
+#### 微信支付API文档
 	/*
 	 * 获取微信用户的openId
 	 * 如果请求该接口的域名与微信公众平台填写的认证域名不一致,则会产生跨域的问题而无法正常获取到openid
@@ -94,18 +95,20 @@ ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 Th
 	  $this->pay->getNativePayParameters($order='')
   
  
-### 微信公众号支付
+#### 微信公众号支付测试地址
 测试地址:http://域名/index.php/Home/testTP/testJSPay
 注意:微信公众平台申请的商户id只能用于微信公众号支付、扫二维码支付和刷卡支付，APP微信支付需要去微信开放平台单独申请商户id。
 公众号支付需要微信用户的openid，如果此前用户已经进行过微信的网页登陆，那么数据库中保存有用户的openid，就无须再次拉取用户授权进行用户openid的获取。
 
-### 微信APP支付
+#### 微信APP支付测试接口
 测试地址:http://域名/index.php/Home/testTP/testAppPay
 
-### 微信NATIVE原生扫码支付
+#### 微信NATIVE原生扫码支付测试接口
 测试地址:http://域名/index.php/Home/testTP/testNativePay
 
-### 支付宝支付初始化类库
+
+### 支付宝
+#### 支付宝支付初始化类库
 	Vendor('starPay.starPay');
 	$config = array(
 		'appid'=>'',					//开发者应用ID 新版接口需要
@@ -115,4 +118,5 @@ ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 Th
 	);
 	$this->pay = new \pay($config);
 
-### 支付宝支付API文档
+#### 支付宝支付API文档
+
