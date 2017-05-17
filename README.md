@@ -81,12 +81,12 @@ ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 Th
 	  */
 	  $this->pay->getJSPayParameters($order='')
   
-	/*
-	 * 获取APP支付所需的参数
-	 * @param $order 统一下单接口返回的数据
-	 * @return APP 支付所需的数据
-	 */
-	 $this->pay->getAppPayParameters($order='')
+	 /*
+	  * 获取APP支付所需的参数
+	  * @param $order 统一下单接口返回的数据
+	  * @return APP 支付所需的数据
+	  */
+	  $this->pay->getAppPayParameters($order='')
  
 	 /*
 	  * 获取NATIVE原生扫码支付的二维码
