@@ -132,16 +132,16 @@ ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 Th
 		'timeout_express'=>'',					//交易超时时间（非必须 例:90m）
 		'format'=>'',						//格式（非必须 仅支持JSON）
 		'seller_id'=>'',					//支付宝用户ID(合作者身份id)（非必须）
-		'goods_type'=>'',					//商品类型			   非必须	0虚拟商品	1实物商品
-		'passback_params'=>'',					//回传参数 需要urlencode发送    非必须
-		'promo_params'=>'',					//优惠参数			   非必须
-		'extend_params'=>'',					//业务扩展参数		  非必须
-		'enable_pay_channels'=>'',				//可用渠道			    非必须
-		'disable_pay_channels'=>'',				//禁用渠道			    非必须
+		'goods_type'=>'',					//商品类型（非必须 0虚拟商品 1实物商品）
+		'passback_params'=>'',					//回传参数 需要urlencode发送（非必须）
+		'promo_params'=>'',					//优惠参数（非必须）
+		'extend_params'=>'',					//业务扩展参数（非必须）
+		'enable_pay_channels'=>'',				//可用渠道（非必须）
+		'disable_pay_channels'=>'',				//禁用渠道（非必须）
 		'store_id'=>'',						//商店门店编号					非必须
-		'sys_service_provider_id'=>'',				//系统商编号			   非必须
-		'needBuyerRealnamed'=>'',				//是否发起实名校验 		 非必须 	T:发起 F:不发起
-		'TRANS_MEMO'=>''					//账务备注			    非必须		例:促销
+		'sys_service_provider_id'=>'',				//系统商编号（非必须）
+		'needBuyerRealnamed'=>'',				//是否发起实名校验（非必须 	T:发起 F:不发起）
+		'TRANS_MEMO'=>''					//账务备注（非必须 例:促销）
 	);
 	echo $this->pay->aliAppPayParams($params);
 	
