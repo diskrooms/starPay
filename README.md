@@ -95,16 +95,16 @@ ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 Th
 	  $this->pay->getNativePayParameters($order='')
   
  
-#### 微信公众号支付测试地址
+#### 微信公众号支付
 测试地址:http://域名/index.php/Home/testTP/testJSPay
-注意:微信公众平台申请的商户id只能用于微信公众号支付、扫二维码支付和刷卡支付，APP微信支付需要去微信开放平台单独申请商户id。
-公众号支付需要微信用户的openid，如果此前用户已经进行过微信的网页登陆，那么数据库中保存有用户的openid，就无须再次拉取用户授权进行用户openid的获取。
+<p>注意:微信公众平台申请的商户id只能用于微信公众号支付、扫二维码支付和刷卡支付，APP微信支付需要去微信开放平台单独申请商户id。
+公众号支付需要微信用户的openid，如果此前用户已经进行过微信的网页登陆，那么数据库中保存有用户的openid，就无须再次拉取用户授权进行用户openid的获取。<p/>
 
-#### 微信APP支付测试接口
-测试地址:http://域名/index.php/Home/testTP/testAppPay
+#### 微信APP支付
+测试接口:http://域名/index.php/Home/testTP/testAppPay
 
 #### 微信NATIVE原生扫码支付测试接口
-测试地址:http://域名/index.php/Home/testTP/testNativePay
+测试接口:http://域名/index.php/Home/testTP/testNativePay
 
 
 ### 支付宝
