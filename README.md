@@ -130,8 +130,8 @@ ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 Th
 		'sign_type'=>'',					//签名算法			支付宝必须 但starPay会缺省设置 RSA
 		'body'=>'',						//交易描述			非必须
 		'timeout_express'=>'',					//交易超时时间		非必须	例:90m
-		'format'=>'',						//格式			  非必须	仅支持JSON
-		'seller_id'=>'',					//支付宝用户ID(合作者身份id)	非必须
+		'format'=>'',						//格式			     非必须	仅支持JSON
+		'seller_id'=>'',					//支付宝用户ID(合作者身份id)    非必须
 		'goods_type'=>'',					//商品类型			   非必须	0虚拟商品	1实物商品
 		'passback_params'=>'',					//回传参数 需要urlencode发送    非必须
 		'promo_params'=>'',					//优惠参数			   非必须
@@ -176,7 +176,7 @@ ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 Th
 		'out_trade_no'=>$orderId,		//商户订单号	       必须
 		'total_amount'=>'1',			//订单金额		必须
 		'notify_url'=>'http://localhost',	//异步通知地址      必须
-		'private_key_path'=>getcwd().'/rsa_private_key.pem',	//用户自主生成私钥存放路	径		必须 强烈建议存放在非web目录
+		'private_key_path'=>getcwd().'/rsa_private_key.pem',	//用户自主生成私钥存放路径		必须 强烈建议存放在非web目录
 		//'private_key_path'=>'xxx',		//原始文本格式的私钥	必须 两种形式任选其一
 
 		'charset'=>'',				//请求使用的编码格式	支付宝必须 但starPay缺省设置 utf-8
