@@ -127,7 +127,7 @@ ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 Th
 		'private_key_path'=>getcwd().'/rsa_private_key.pem',	//用户自主生成私钥存放路径（必须） 强烈建议存放在非web目录
 
 		'charset'=>'',						//请求使用的编码格式（支付宝必须） 但starPay缺省设置 utf-8
-		'sign_type'=>'',					//签名算法（支付宝必须） 但starPay会缺省设置 RSA
+		'sign_type'=>'',					//签名算法（支付宝必须） starPay缺省设置 RSA 有RSA和RSA2两个选项
 		'body'=>'',						//交易描述（非必须）
 		'timeout_express'=>'',					//交易超时时间（非必须 例:90m）
 		'format'=>'',						//格式（非必须 仅支持JSON）
@@ -140,7 +140,7 @@ ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 Th
 		'disable_pay_channels'=>'',				//禁用渠道（非必须）
 		'store_id'=>'',						//商店门店编号					非必须
 		'sys_service_provider_id'=>'',				//系统商编号（非必须）
-		'needBuyerRealnamed'=>'',				//是否发起实名校验（非必须 	T:发起 F:不发起）
+		'needBuyerRealnamed'=>'',				//是否发起实名校验（非必须 T:发起 F:不发起）
 		'TRANS_MEMO'=>''					//账务备注（非必须 例:促销）
 	);
 	echo $this->pay->aliAppPayParams($params);
@@ -149,22 +149,22 @@ ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 Th
 	 * 支付宝移动支付所需参数(旧版)
 	 */
 	$params = array(
-		'body'=>'',			//商品详情	 			 必须
-		'subject'=>'',			//商品名称	 			 必须
-		'total_fee'=>0.01,		//订单金额	 			 必须 min 0.01元
-		'notify_url'=>'',		//异步通知地址	 	       必须
-		'out_trade_no'=>$order,		//商户订单号		 		必须
-		'private_key_path'=>getcwd().'/rsa_private_key.pem',	//用户自主生成私钥存放路径	必须 强烈建议存放在非web目录
+		'body'=>'',			//商品详情（必须）
+		'subject'=>'',			//商品名称（必须）
+		'total_fee'=>0.01,		//订单金额（必须 min 0.01元）
+		'notify_url'=>'',		//异步通知地址（必须）
+		'out_trade_no'=>$order,		//商户订单号（必须）
+		'private_key_path'=>getcwd().'/rsa_private_key.pem',	//用户自主生成私钥存放路径（必须 强烈建议存放在非web目录）
 
-		'app_id'=>'',			//客户端号    			非必须 例:external
-		'appenv'=>'',			//客户端来源	 			非必须 例: appenv="system=android^version=3.0.1.2"
-		'goods_type',			//商品类型	 			非必须 例：1实物交易 0虚拟交易 默认1
-		'hb_fq_param'=>'',		//花呗分期参数	 非必须	json格式 {"hb_fq_num":"3","hb_fq_seller_percent":"100"}
-		'rn_check'=>'',			//是否发起实名校验 		非必须 例： T发起实名校验  F不发起实名校验
-		'it_b_pay'=>'',			//未付款交易超时时间		非必须 例：30m
-		'extern_token'=>'',		//授权令牌				非必须 
-		'promo_params'=>'',		//商户优惠活动参数			非必须 
-		'extend_params'=>''		//业务扩展参数				非必须 例:{"TRANS_MEMO":"促销"}
+		'app_id'=>'',			//客户端号（非必须 例:external）
+		'appenv'=>'',			//客户端来源（非必须 例: appenv="system=android^version=3.0.1.2"）
+		'goods_type',			//商品类型（非必须 例：1实物交易 0虚拟交易 默认1）
+		'hb_fq_param'=>'',		//花呗分期参数（非必须 json格式 {"hb_fq_num":"3","hb_fq_seller_percent":"100"}）
+		'rn_check'=>'',			//是否发起实名校验（非必须 例： T发起实名校验  F不发起实名校验）
+		'it_b_pay'=>'',			//未付款交易超时时间（非必须 例：30m）
+		'extern_token'=>'',		//授权令牌（非必须）
+		'promo_params'=>'',		//商户优惠活动参数（非必须）
+		'extend_params'=>''		//业务扩展参数（非必须 例:{"TRANS_MEMO":"促销"}）
 	);
 	echo $this->pay->aliAppPayParamsOld($params);
 	
@@ -172,28 +172,28 @@ ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 Th
 	 * 支付宝wap支付所需参数(新版)
 	 */
 	$params = array(
-		'subject'=>'test',			//商品名称		必须
-		'out_trade_no'=>$orderId,		//商户订单号	       必须
-		'total_amount'=>'1',			//订单金额		必须
-		'notify_url'=>'http://localhost',	//异步通知地址      必须
-		'private_key_path'=>getcwd().'/rsa_private_key.pem',	//用户自主生成私钥存放路径		必须 强烈建议存放在非web目录
-		//'private_key_path'=>'xxx',		//原始文本格式的私钥	必须 两种形式任选其一
+		'subject'=>'test',			//商品名称（必须）
+		'out_trade_no'=>$orderId,		//商户订单号（必须）
+		'total_amount'=>'1',			//订单金额（必须）
+		'notify_url'=>'http://localhost',	//异步通知地址（必须）
+		'private_key_path'=>getcwd().'/rsa_private_key.pem',	//用户自主生成私钥存放路径（必须 强烈建议存放在非web目录）
+		//'private_key_path'=>'xxx',		//原始文本格式的私钥（必须 两种形式任选其一）
 
-		'charset'=>'',				//请求使用的编码格式	支付宝必须 但starPay缺省设置 utf-8
-		'sign_type'=>'',			//签名算法			支付宝必须 但starPay会缺省设置 RSA
-		'body'=>'test',				//交易描述		          非必须
-		'timeout_express'=>'',			//交易超时时间		非必须	例:90m
-		'format'=>'',				//格式			非必须	仅支持JSON
-		'seller_id'=>'',			//支付宝用户ID(合作者身份id)	非必须
-		'goods_type'=>'',			//商品类型					非必须	0虚拟商品	1实物商品
-		'passback_params'=>'',			//回传参数 需要urlencode发送		     非必须
-		'promo_params'=>'',			//优惠参数					非必须
-		'extend_params'=>'',			//业务扩展参数			       非必须
-		'enable_pay_channels'=>'',		//可用渠道					非必须
-		'disable_pay_channels'=>'',		//禁用渠道					非必须
-		'store_id'=>'',				//商店门店编号			      非必须
-		'sys_service_provider_id'=>'',		//系统商编号				       非必须
-		'needBuyerRealnamed'=>'',		//是否发起实名校验 			     非必须 	T:发起 F:不发起
-		'TRANS_MEMO'=>''			//账务备注					非必须	例:促销
+		'charset'=>'',				//请求使用的编码格式（支付宝必须 但starPay缺省设置 utf-8）
+		'sign_type'=>'',			//签名算法（支付宝必须 starPay缺省设置 RSA 有RSA和RSA2两个选项）
+		'body'=>'test',				//交易描述（非必须）
+		'timeout_express'=>'',			//交易超时时间（非必须 例:90m）
+		'format'=>'',				//格式（非必须 仅支持JSON）
+		'seller_id'=>'',			//支付宝用户ID(合作者身份id) （非必须）
+		'goods_type'=>'',			//商品类型（非必须 0 虚拟商品 1 实物商品）
+		'passback_params'=>'',			//回传参数 需要urlencode处理后发送（非必须）
+		'promo_params'=>'',			//优惠参数（非必须）
+		'extend_params'=>'',			//业务扩展参数（非必须）
+		'enable_pay_channels'=>'',		//可用渠道（非必须）
+		'disable_pay_channels'=>'',		//禁用渠道（非必须）
+		'store_id'=>'',				//商店门店编号（非必须）
+		'sys_service_provider_id'=>'',		//系统商编号（非必须）
+		'needBuyerRealnamed'=>'',		//是否发起实名校验（非必须 T:发起 F:不发起）
+		'TRANS_MEMO'=>''			//账务备注（非必须 例:促销）
 	);
 	echo $this->pay->aliWapPayParams($params);
