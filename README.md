@@ -100,7 +100,7 @@ ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 Th
 #### 微信APP支付
 测试接口:http://域名/index.php/Home/testTP/testAppPay
 
-#### 微信NATIVE原生扫码支付测试接口
+#### 微信NATIVE原生扫码支付
 测试接口:http://域名/index.php/Home/testTP/testNativePay
 
 
@@ -138,7 +138,7 @@ ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 Th
 		'extend_params'=>'',					//业务扩展参数（非必须）
 		'enable_pay_channels'=>'',				//可用渠道（非必须）
 		'disable_pay_channels'=>'',				//禁用渠道（非必须）
-		'store_id'=>'',						//商店门店编号					非必须
+		'store_id'=>'',						//商店门店编号（非必须）
 		'sys_service_provider_id'=>'',				//系统商编号（非必须）
 		'needBuyerRealnamed'=>'',				//是否发起实名校验（非必须 T:发起 F:不发起）
 		'TRANS_MEMO'=>''					//账务备注（非必须 例:促销）
@@ -197,3 +197,8 @@ ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 Th
 		'TRANS_MEMO'=>''			//账务备注（非必须 例:促销）
 	);
 	echo $this->pay->aliWapPayParams($params);
+	
+####支付宝移动支付（旧版）
+测试接口：http://域名/index.php/Home/testTP/testAlipayAppPayOld
+
+
