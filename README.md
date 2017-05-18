@@ -198,7 +198,14 @@ ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 Th
 	);
 	echo $this->pay->aliWapPayParams($params);
 	
-####支付宝移动支付（旧版）
+#### 支付宝APP支付（新版）
+测试接口：http://域名/index.php/Home/testTP/testAlipayAppPay
+
+#### 支付宝移动支付（旧版）
 测试接口：http://域名/index.php/Home/testTP/testAlipayAppPayOld
 
+#### 支付宝wap支付（新版）
+测试接口：http://域名/index.php/Home/testTP/testAlipayWapPay
 
+#### 支付宝wap支付（旧版）
+测试接口：http://域名/index.php/Home/testTP/testAlipayWapPayOld
