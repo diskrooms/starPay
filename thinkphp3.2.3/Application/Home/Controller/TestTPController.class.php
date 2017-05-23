@@ -176,8 +176,8 @@ class TestTPController extends Controller {
 				'out_trade_no'=>$orderId,								//商户订单号					必须
 				'total_amount'=>'1',									//订单金额					必须
 				'notify_url'=>'http://localhost',						//异步通知地址					必须
-				'private_key_path'=>getcwd().'/rsa_private_key.pem',	//用户自主生成私钥存放路	径		必须 强烈建议存放在非web目录
-				//'private_key_path'=>'xxx',							//原始文本格式的私钥			必须 两种形式任选其一
+				//'private_key_path'=>getcwd().'/rsa_private_key.pem',	//用户自主生成私钥存放路	径		必须 强烈建议存放在非web目录
+				'private_key_path'=>'xxx',							//原始文本格式的私钥			必须 两种形式任选其一
 				
 				'charset'=>'',											//请求使用的编码格式			支付宝必须 但starPay缺省设置 utf-8
 				'sign_type'=>'',										//签名算法					支付宝必须 但starPay会缺省设置 RSA
@@ -202,8 +202,13 @@ class TestTPController extends Controller {
 		}
 	}
 	
+	//支付宝wap支付（旧版）
+	public function testAlipayWapPayOld(){
+		
+	}
 	
-	//异步回调
+	
+	//微信异步回调
 	public function testNotify(){
 		if($this->pay->notify()['checkSign'] == true){
 			file_put_contents('./testNofity.txt',serialize($this->pay->notify()['notifyData']));

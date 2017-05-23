@@ -19,6 +19,7 @@ class pay{
 	private $timeout = '';                                      //curl超时时间 默认6s
 	
 	public function __construct($config = array()){
+		header("Content-type:text/html;charset=utf-8");
 		if($config['type'] == 'wx'){
 			$this->wxAppId = $config['appid'];
 			$this->wxAppSecret = $config['appsecret'];
@@ -361,6 +362,7 @@ class pay{
 	 
 	 /**
 	  * 获取NATIVE原生扫码支付的二维码
+	  * @param $order 统一下单接口返回的数据
 	  */
 	 public function getNativePayParameters($order=''){
 		 if(empty($order)){
@@ -523,7 +525,6 @@ class pay{
 	 * 支付宝wap支付2.0所需参数 (新版)
 	 */
 	public function aliWapPayParams($params = array()){
-		header();
 		//校验必须参数
 		$reqParams = array('subject','total_amount','notify_url','out_trade_no','private_key_path');
 		foreach($reqParams as $param){
@@ -577,6 +578,13 @@ class pay{
 		$_params['biz_content'] = json_encode($_params_copy,JSON_UNESCAPED_UNICODE);
 		ksort($_params);
 		return $this->buildForm($this->getParamSign($_params,$params['private_key_path'],$_params['sign_type'],'new',false));
+		
+	}
+	
+	/**
+	 * 支付宝wap支付1.0所需参数（旧版）
+	 */
+	public function aliWapPayParamsOld($params = array()){
 		
 	}
 	
