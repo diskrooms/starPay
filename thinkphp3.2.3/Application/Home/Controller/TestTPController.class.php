@@ -18,9 +18,9 @@ class TestTPController extends Controller {
 			'mchkey'=>''					//您的商户平台密钥
 		);*/
 		$config = array(
-			'appid'=>'2015122901050975',					//开发者应用ID	  新版接口需要
-			'parterid'=>'',									//支付宝合作者身份id 旧版接口需要 新版不需要
-			'sellerid'=>'',					//支付宝卖家账号
+			'appid'=>'xxx',					//开发者应用ID	  新版接口需要
+			'parterid'=>'xxx',				//支付宝合作者身份id 旧版接口需要 新版不需要
+			'sellerid'=>'xxx@xxx.com',		//支付宝卖家账号
 			'type'=>'alipay'				//支付类型
 		);
 		$this->pay = new \pay($config);
@@ -166,7 +166,7 @@ class TestTPController extends Controller {
 		}
 	}
 	
-	//支付宝wap支付 (新版)
+	//支付宝wap 2.0支付 (新版)
 	public function testAlipayWapPay(){
 		//编写用户自己的业务逻辑(接收前端参数)
 		try {
@@ -177,7 +177,7 @@ class TestTPController extends Controller {
 				'total_amount'=>'1',									//订单金额					必须
 				'notify_url'=>'http://localhost',						//异步通知地址					必须
 				//'private_key_path'=>getcwd().'/rsa_private_key.pem',	//用户自主生成私钥存放路	径		必须 强烈建议存放在非web目录
-				'private_key_path'=>'xxx',							//原始文本格式的私钥			必须 两种形式任选其一
+				'private_key_path'=>'xxx',							    //原始文本格式的私钥			必须 两种形式任选其一
 				
 				'charset'=>'',											//请求使用的编码格式			支付宝必须 但starPay缺省设置 utf-8
 				'sign_type'=>'',										//签名算法					支付宝必须 但starPay会缺省设置 RSA
@@ -202,9 +202,35 @@ class TestTPController extends Controller {
 		}
 	}
 	
-	//支付宝wap支付（旧版）
+	//支付宝wap 1.0支付（旧版）
 	public function testAlipayWapPayOld(){
-		
+		//编写自己的前端业务逻辑
+		try {
+			$orderId = $this->pay->createOrder();
+			$params = array(
+				'key'=>'xxx',											//验签密钥 		签名方式为MD5时设置该值
+				'private_key_path'=>'xxx',								//商户私钥文件路径	签名方式为RSA时设置该值
+				'ali_public_key_path'=>'xxx',							//支付宝公钥文件路径 签名方式为RSA时设置该值
+				'total_fee'=>'0.01',									//订单金额	必须	单位:元
+				'subject'=>'test',										//订单名称	必须
+				'out_trade_no'=>$orderId,								//商户订单号	必须
+				'notify_url'=>'xxx',									//服务器异步通知页面路径		必须
+				
+				'merchant_url'=>'xx',									//用户中途退出付款返回的商户地址	非必须
+				'sign_type'=>'',										//验签方式 支持MD5和RSA	缺省设置为MD5
+				'input_charset'=>'',									//字符编码 支持gbk和utf-8	缺省设置为utf-8
+				'cacert'=>'',											//ca证书路径地址，用于curl中ssl校验 请保证cacert.pem文件在当前文件夹目录中 非必须
+				'transport'=>'',										//访问模式,根据自己的服务器是否支持ssl访问，若支持请选择https；若不支持请选择http 缺省设置为http
+				'call_back_url'=>'',									//页面跳转同步通知页面路径 非必须
+				'req_id'=>'',											//请求号		非必须 缺省设置为 date('Ymdhis')
+				'v'=>'',												//版本号		非必须 缺省设置为 2.0
+				'format'=>'',											//返回格式	非必须 缺省设置为 xml
+			);
+			$response = $this->pay->aliWapPayParamsOld($params);
+			//dump($response);
+		} catch(Exception $e){
+			
+		}
 	}
 	
 	

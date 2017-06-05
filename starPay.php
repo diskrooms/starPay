@@ -27,9 +27,9 @@ class pay{
 			$this->wxMchKey = $config['mchkey'];
 			$this->timeout = $config['timeout'] ? $config['timeout'] : 6;
 		} else {
-			$this->alipayAppId = $config['appid'] ? $config['appid'] : '';
-			$this->alipayPartner = $config['parterid'] ? $config['parterid'] : '';
-			$this->alipaySellerId = $config['sellerid'];
+			$this->alipayAppId = trim($config['appid']) ? trim($config['appid']) : '';
+			$this->alipayPartner = trim($config['parterid']) ? trim($config['parterid']) : '';
+			$this->alipaySellerId = trim($config['sellerid']);
 		}
 	}
 	
@@ -585,11 +585,141 @@ class pay{
 	 * 支付宝wap支付1.0所需参数（旧版）
 	 */
 	public function aliWapPayParamsOld($params = array()){
+		//校验必须参数
+		$reqParams = array('subject','total_fee','notify_url','out_trade_no');
+		foreach($reqParams as $param){
+			if(empty($params[$param])){
+				throw new \Exception($param.'参数不能为空');
+			}
+		}
+		if(empty($params['key']) && empty($params['private_key_path']) && empty($params['ali_public_key_path'])){
+			throw new \Exception('密钥设置不能全部为空');
+		}
+		if(empty($this->alipayPartner) || empty($this->alipaySellerId)){
+		 	throw new \Exception('wap支付旧接口合作者id和卖家账号email不能为空');
+		}
+		//填充缺省业务参数
+		$params['sign_type'] = trim($params['sign_type']) ? trim($params['sign_type']) : 'MD5';
+		$params['format'] = $params['format'] ? $params['format'] : 'xml';
+		$params['v'] = $params['v'] ? $params['v'] : '2.0';
+		$params['req_id'] = $params['req_id'] ? $params['req_id'] : date('Ymdhis');
+		$params['input_charset'] = trim(strtolower($params['input_charset'])) ? trim(strtolower($params['input_charset'])) : 'utf-8';
+		
+		//组装请求业务参数
+		$req_data = '<direct_trade_create_req><notify_url>' . $params['notify_url'] . '</notify_url><call_back_url>' . $params['call_back_url'] . '</call_back_url><seller_account_name>' . trim($this->alipaySellerId) . '</seller_account_name><out_trade_no>' . $params['out_trade_no'] . '</out_trade_no><subject>' . $params['subject'] . '</subject><total_fee>' . $params['total_fee'] . '</total_fee><merchant_url>' . $params['merchant_url'] . '</merchant_url></direct_trade_create_req>';
+		//构造请求参数
+		$para_req = array(
+			"service" => "alipay.wap.trade.create.direct",
+			"partner" => trim($this->alipayPartner),
+			"sec_id" => $params['sign_type'],
+			"format"	=> $params['format'],
+			"v"	=> $params['v'],
+			"req_id"	=> $params['req_id'],
+			"req_data"	=> $req_data,
+			"_input_charset" => $params['input_charset']
+		);
+		//支付宝网关
+		$gate_way = 'http://wappaygw.alipay.com/service/rest.htm';
+		//参数验签后生成新的参数数组
+		$key = ($params['sign_type'] == 'MD5') ? $params['key'] : $params['private_key_path'];
+		$para_sign = $this->aliParamsSign($para_req,$key,$params['sign_type']);
+		$response = urldecode($this->postGateway($gate_way,$para_sign,$params['input_charset'],$params['cacert']));
+		$result = $this->parseResponse($response);
+		$token = $result['request_token'];
+		//根据授权码token调用交易接口alipay.wap.auth.authAndExecute
+		$req_data = '<auth_and_execute_req><request_token>' . $token . '</request_token></auth_and_execute_req>';
+		$para_token = array(
+			"service" => "alipay.wap.auth.authAndExecute",
+			"partner" => $this->alipayPartner,
+			"sec_id" => $params['sign_type'],
+			"format"	=> $params['format'],
+			"v"	=> $params['v'],
+			"req_id"	=> $params['req_id'],
+			"req_data"	=> $req_data,
+			"_input_charset" => $params['input_charset']
+		);
+		//以建立HTML的形式 向支付网关发送POST请求
+		$para_sign = $this->aliParamsSign($para_token,$key,$params['sign_type']);
+		echo $this->postGatewayForm($gate_way,$para_sign,$para_token['_input_charset'],'post');
 		
 	}
 	
+	
 	/**
-	 * 支付宝参数签名(支持旧版)
+	 * 以构造HTML表单的形式向支付网关发送一个POST/GET请求（wap旧接口）
+	 */
+	 private function postGatewayForm($gate_way,$para,$input_charset='utf-8',$methor='post'){
+		$html = "<form id='alipaysubmit' name='alipaysubmit' action='".$gate_way."?_input_charset=".$input_charset."' method='".$method."'>";
+		foreach($para as $k=>$v){
+			$html.= "<input type='hidden' name='".$k."' value='".$v."'/>";
+		}
+		//submit按钮控件请不要含有name属性 (含有name属性会产生一些诡异的BUG)
+		$html = $html."<input type='submit' value='提交'></form>";
+		$html = $html."<script>document.forms['alipaysubmit'].submit();</script>";
+		return $html;
+	 }
+	 
+	/**
+	 * 向支付网关发送一个POST请求(wap旧接口)
+	 */
+	private function postGateway($gate_way,$para,$input_charset='',$cacert_url=''){
+		if (trim($input_charset) != '') {
+			$gate_way = $gate_way."?_input_charset=".$input_charset;
+		}
+		$curl = curl_init($gate_way);
+		if(!empty($cacert_url)){
+			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);//SSL证书认证
+			curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);//严格认证
+			curl_setopt($curl, CURLOPT_CAINFO,$cacert_url);//证书地址
+		}
+		curl_setopt($curl, CURLOPT_HEADER, 0 ); // 过滤HTTP头
+		curl_setopt($curl,CURLOPT_RETURNTRANSFER, 1);// 显示输出结果
+		curl_setopt($curl,CURLOPT_POST,true); // post传输数据
+		curl_setopt($curl,CURLOPT_POSTFIELDS,$para);// post传输数据
+		$responseText = curl_exec($curl);
+		//var_dump( curl_error($curl) );//如果执行curl过程中出现异常，可打开此开关，以便查看异常内容
+		curl_close($curl);
+		return $responseText;
+	}
+	 
+	 
+	/**
+	 * 解析远程返送的数据(旧wap接口)
+	 */
+	private function parseResponse($str_text,$private_key_path='',$sign_type='') {
+		//以“&”字符切割字符串
+		$para_split = explode('&',$str_text);
+		//把切割后的字符串数组变成变量与数值组合的数组
+		foreach ($para_split as $item) {
+			//获得第一个=字符的位置
+			$nPos = strpos($item,'=');
+			//获得字符串长度
+			$nLen = strlen($item);
+			//获得变量名
+			$key = substr($item,0,$nPos);
+			//获得数值
+			$value = substr($item,$nPos+1,$nLen-$nPos-1);
+			//放入数组中
+			$para_text[$key] = $value;
+		}
+		
+		if( ! empty ($para_text['res_data'])) {
+			//解析加密部分字符串
+			if($sign_type == '0001') {
+				//$para_text['res_data'] = rsaDecrypt($para_text['res_data'], $private_key_path);
+			}
+			//token从res_data中解析出来（也就是说res_data中已经包含token的内容）
+			$doc = new DOMDocument();
+			$doc->loadXML($para_text['res_data']);
+			$para_text['request_token'] = $doc->getElementsByTagName( "request_token" )->item(0)->nodeValue;
+		}
+		
+		return $para_text;
+	}
+	 
+	
+	/**
+	 * 支付宝参数签名(支持旧版)-APP版
 	 */
 	private function getParamSign($params = array(),$private_key_path,$sign_type = 'RSA',$ver = 'old',$return = true){
 		$temp = "";
@@ -601,9 +731,7 @@ class pay{
 		if(get_magic_quotes_gpc()){
 			$temp = stripslashes($temp);
 		}
-		
 		$sign = $this->rsaSign($temp,$private_key_path,$sign_type);
-		
 		if($return){
 			if($ver == 'old'){
 				return $temp.'&sign='.urlencode($sign).'&sign_type="RSA"';
@@ -617,10 +745,9 @@ class pay{
 	}
 	
 	/**
-	 * 支付宝wap支付组装Form表单 (POST提交)
+	 * 支付宝wap支付组装Form表单 (新版本)
 	 */
 	 private function buildForm($params){
-		
 		$sHtml = "<form id='alipaysubmit' name='alipaysubmit' action='https://openapi.alipay.com/gateway.do?charset=utf-8' method='POST'>";
 		while (list ($key, $val) = each ($params)) {
 			if (!empty($val)) {
@@ -632,14 +759,15 @@ class pay{
 		}
 		//submit按钮控件请不要含有name属性
         $sHtml = $sHtml."<input type='submit' value='ok' style='display:none;''></form>";
-		
 		$sHtml = $sHtml."<script>document.forms['alipaysubmit'].submit();</script>";
-		
 		return $sHtml;
 	 }
 	 
 	/**
 	 * 支付宝RSA签名(支持旧版)
+	 * @param  $data 待签名的字符串
+	 * @param  $private_key_path 私钥路径
+	 * @param  $sign_type 签名类型 RSA RSA2
 	 */
 	private function rsaSign($data, $private_key_path,$sign_type) {
 		if(!file_exists($private_key_path)){
@@ -663,4 +791,78 @@ class pay{
 		$sign = base64_encode($sign);
 		return $sign;
 	}
+	
+	/**
+	 * 支付宝请求参数数组组装成待签名字符串
+	 * 待签名的字符串
+	 */
+	private function aliParamsToStringForSign($params = array()){
+		$_para_token = array();
+		//参数过滤
+		foreach($params as $k=>$v){
+			if(($k !== 'sign') && ($k !== 'sign_type') && !empty($v)){
+				$_para_token[$k] = $v;
+			}
+		}
+		$temp = "";
+		ksort($_para_token);
+		foreach ($_para_token as $k => $v){
+			$temp .= $k . '=' . $v . '&';
+		}
+		//去掉最后一个 &
+		$temp = substr($temp, 0, strlen($temp)-1);
+		if(get_magic_quotes_gpc()){
+			$temp = stripslashes($temp);
+		}
+		return array('arr'=>$_para_token,'str'=>$temp);
+	}
+	
+	/**
+	 *  该函数对原 rsaSign 函数进行扩展 加入对MD5的支持
+	 * 	支付宝签名函数 支持sign_type等于 RSA RSA2 MD5 0001(旧版) 各种情况
+	 *  @param $aliParams 待签名参数数组
+	 *  @param $key		  密钥文本或者路径
+	 *  @param $sign_type 签名算法 RSA RSA2 MD5 0001
+	 *  @return $aliParams	附带签名数据的参数数组
+	 */
+	 private function aliParamsSign($aliParams = array(),$key = '',$sign_type='MD5'){
+		 if(empty($aliParams) || empty($key)){
+			throw new \Exception('待签名参数数组和密钥不能为空'); 
+		 }
+		 //生成待签名字符串
+		 $resForSign = $this->aliParamsToStringForSign($aliParams);
+		 $strForSign = $resForSign['str'];
+		 $sign_type = strtoupper($sign_type);
+		 if(($sign_type == '0001') || ($sign_type == 'RSA') || ($sign_type == 'RSA2')){
+			//rsa签名 可以直接使用key字符串也可以从密钥文件中读取密钥内容
+			if(!file_exists($key)){
+				$res = "-----BEGIN RSA PRIVATE KEY-----\n" .
+						wordwrap($key, 64, "\n", true) .
+						"\n-----END RSA PRIVATE KEY-----";
+			} else {
+				$priKey = file_get_contents($key);
+				$res = openssl_get_privatekey($priKey);
+			}
+			if(!$res){
+				exit('您使用的私钥格式错误，请检查RSA私钥配置'); 
+			}
+			if($sign_type == 'RSA'){
+				openssl_sign($strForSign, $sign, $res);
+			} elseif($sign_type == 'RSA2'){
+				openssl_sign($strForSign, $sign, $res, OPENSSL_ALGO_SHA256);
+			}
+			openssl_free_key($res);
+			//base64编码
+			$sign = base64_encode($sign);
+			$resForSign['arr']['sign'] = $sign;
+			return $resForSign['arr'];
+		 } elseif($sign_type == 'MD5'){
+			 $sign = md5($strForSign.$key);
+			 
+			 $resForSign['arr']['sign'] = $sign;
+			return $resForSign['arr'];
+		 } else {
+			 throw new \Exception('签名类型有误');
+		 }
+	 }
 }
