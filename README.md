@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 概要
 <p>starPay是一个聚合了微信支付和支付宝支付的极轻量支付类库,全库的核心只有一个文件(开启微信的二维码支付则还需要引入一个二维码生成库)。</p>
 <p>starPay在移动互联网的大潮下应运而生。</p>
@@ -209,3 +210,7 @@ ThinkPHP3.2.3 文件夹是已经将 starPay 嵌入到其Vendor库目录下的 Th
 
 #### 支付宝wap支付（旧版）
 测试接口：http://域名/index.php/Home/testTP/testAlipayWapPayOld
+=======
+# starPay
+a pay library of PHP that integrate WeChat Pay and Alipay
+>>>>>>> 536ceec4e47136a1179878886bb941553c107296
