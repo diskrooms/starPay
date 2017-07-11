@@ -18,21 +18,26 @@ class pay{
 	private $payType = '';                                   //支付类型 wx 微信支付 alipay 支付宝支付
 	private $timeout = '';                                      //curl超时时间 默认6s
 	
-	public function __construct($config = array()){
+	public function __construct(){
 		header("Content-type:text/html;charset=utf-8");
-		if($config['type'] == 'wx'){
+	}
+	
+	/**
+	 * 初始化 starPay 配置
+	 */
+	public function init($config = array()){
+		if($config['type'] == 'wechat'){
 			$this->wxAppId = $config['appid'];
 			$this->wxAppSecret = $config['appsecret'];
 			$this->wxMchId = $config['mchid'];
 			$this->wxMchKey = $config['mchkey'];
 			$this->timeout = $config['timeout'] ? $config['timeout'] : 6;
-		} else {
+		} elseif($config['type'] == 'alipay') {
 			$this->alipayAppId = trim($config['appid']) ? trim($config['appid']) : '';
 			$this->alipayPartner = trim($config['parterid']) ? trim($config['parterid']) : '';
 			$this->alipaySellerId = trim($config['sellerid']);
 		}
 	}
-	
 	
 	/**
 	 * 获取微信用户的openId
