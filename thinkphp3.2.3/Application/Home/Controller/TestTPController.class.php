@@ -10,24 +10,19 @@ class TestTPController extends Controller {
 	//初始化配置
 	public function _initialize() {
 		Vendor('starPay.starPay');
-		/*$config = array(
-			'appid'=>'',					//您的公众号 appid 或者应用appid
-			'appsecret'=>'',				//您的公众号 appsecret
-			'type'=>'wx',					//支付类型 wx微信支付 alipay支付宝支付 缺省支付宝支付
-			'mchid'=>'',					//您的商户id
-			'mchkey'=>''					//您的商户平台密钥
-		);*/
-		$config = array(
-			'appid'=>'xxx',					//开发者应用ID	  新版接口需要
-			'parterid'=>'xxx',				//支付宝合作者身份id 旧版接口需要 新版不需要
-			'sellerid'=>'xxx@xxx.com',		//支付宝卖家账号
-			'type'=>'alipay'				//支付类型
-		);
-		$this->pay = new \pay($config);
+		$this->pay = new \pay();
 	}
 	
 	//微信公众号JSAPI支付
 	public function testJSPay(){
+		$config = array(
+			'appid'=>'',					//您的公众号 appid 或者应用appid
+			'appsecret'=>'',				//您的公众号 appsecret
+			'type'=>'wechat',				//支付类型   wechat微信支付 alipay支付宝支付
+			'mchid'=>'',					//您的商户id
+			'mchkey'=>''					//您的商户平台密钥
+		);
+		$this->pay->init($config);
 		//编写商户自己的业务逻辑(接收前端参数)
 		//如果商户数据库中已保存有用户的openid 可无需再调用以下函数来获取用户openid
 		$openId = $this->pay->getOpenId();
@@ -102,6 +97,13 @@ class TestTPController extends Controller {
 	
 	//支付宝移动支付(旧版)
 	public function testAlipayAppPayOld(){
+		$config = array(
+			'appid'=>'xxx',					//开发者应用ID	  新版接口需要
+			'parterid'=>'xxx',				//支付宝合作者身份id 旧版接口需要 新版不需要
+			'sellerid'=>'xxx@xxx.com',		//支付宝卖家账号
+			'type'=>'alipay'				//支付类型
+		);
+		$this->pay->init($config);
 		//编写用户自己的业务逻辑(接收前端参数)
 		try {
 			$order = $this->pay->createOrder();
@@ -132,6 +134,13 @@ class TestTPController extends Controller {
 	
 	//支付宝APP支付(新版)
 	public function testAlipayAppPay(){
+		$config = array(
+			'appid'=>'xxx',					//开发者应用ID	  新版接口需要
+			'parterid'=>'xxx',				//支付宝合作者身份id 旧版接口需要 新版不需要
+			'sellerid'=>'xxx@xxx.com',		//支付宝卖家账号
+			'type'=>'alipay'				//支付类型
+		);
+		$this->pay->init($config);
 		//编写用户自己的业务逻辑(接收前端参数)
 		try {
 			$orderId = $this->pay->createOrder();
@@ -168,13 +177,20 @@ class TestTPController extends Controller {
 	
 	//支付宝wap 2.0支付 (新版)
 	public function testAlipayWapPay(){
+		$config = array(
+			'appid'=>'xxx',					//开发者应用ID	  新版接口需要
+			'parterid'=>'xxx',				//支付宝合作者身份id 旧版接口需要 新版不需要
+			'sellerid'=>'xxx@xxx.com',		//支付宝卖家账号
+			'type'=>'alipay'				//支付类型
+		);
+		$this->pay->init($config);
 		//编写用户自己的业务逻辑(接收前端参数)
 		try {
 			$orderId = $this->pay->createOrder();
 			$params = array(
 				'subject'=>'test',										//商品名称					必须
 				'out_trade_no'=>$orderId,								//商户订单号					必须
-				'total_amount'=>'1',									//订单金额					必须
+				'total_amount'=>'1',									//订单金额 单位：分			必须
 				'notify_url'=>'http://localhost',						//异步通知地址					必须
 				//'private_key_path'=>getcwd().'/rsa_private_key.pem',	//用户自主生成私钥存放路	径		必须 强烈建议存放在非web目录
 				'private_key_path'=>'xxx',							    //原始文本格式的私钥			必须 两种形式任选其一
@@ -202,8 +218,15 @@ class TestTPController extends Controller {
 		}
 	}
 	
-	//支付宝wap 1.0支付（旧版）
-	public function testAlipayWapPayOld(){
+	//支付宝wap 1.0支付（旧版 3.3）
+	public function testAlipayWapPayOlder(){
+		$config = array(
+			'appid'=>'xxx',					//开发者应用ID	  新版接口需要
+			'parterid'=>'xxx',				//支付宝合作者身份id 旧版接口需要 新版不需要
+			'sellerid'=>'xxx@xxx.com',		//支付宝卖家账号
+			'type'=>'alipay'				//支付类型
+		);
+		$this->pay->init($config);
 		//编写自己的前端业务逻辑
 		try {
 			$orderId = $this->pay->createOrder();
@@ -226,7 +249,7 @@ class TestTPController extends Controller {
 				'v'=>'',												//版本号		非必须 缺省设置为 2.0
 				'format'=>'',											//返回格式	非必须 缺省设置为 xml
 			);
-			$response = $this->pay->aliWapPayParamsOld($params);
+			$response = $this->pay->aliWapPayParamsOlder($params);
 			//dump($response);
 		} catch(Exception $e){
 			

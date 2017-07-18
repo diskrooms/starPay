@@ -15,8 +15,8 @@ class pay{
 	private $alipayNotifyUrl = '';							   //支付宝异步回调地址
 	private $alipayReturnUrl = '';							   //支付宝同步回调地址
 	
-	private $payType = '';                                   //支付类型 wx 微信支付 alipay 支付宝支付
-	private $timeout = '';                                      //curl超时时间 默认6s
+	private $payType = '';                                     //支付类型 wx 微信支付 alipay 支付宝支付
+	private $timeout = '';                                     //curl超时时间 默认6s
 	
 	public function __construct(){
 		header("Content-type:text/html;charset=utf-8");
@@ -36,6 +36,8 @@ class pay{
 			$this->alipayAppId = trim($config['appid']) ? trim($config['appid']) : '';
 			$this->alipayPartner = trim($config['parterid']) ? trim($config['parterid']) : '';
 			$this->alipaySellerId = trim($config['sellerid']);
+		} else {
+			throw Exception('配置类型错误');
 		}
 	}
 	
@@ -525,6 +527,32 @@ class pay{
 		ksort($_params);
 		return htmlspecialchars($this->getParamSign($_params,$params['private_key_path'],$_params['sign_type'],'new'));
 	}
+	
+	/**
+	 * 支付宝APP支付 参数签名(支持旧版)
+	 */
+	private function getParamSign($params = array(),$private_key_path,$sign_type = 'RSA',$ver = 'old',$return = true){
+		$temp = "";
+		foreach ($params as $k => $v){
+			$temp .= $k . '=' . $v . '&';
+		}
+		//echo $temp;
+		$temp = substr($temp, 0, strlen($temp)-1);
+		if(get_magic_quotes_gpc()){
+			$temp = stripslashes($temp);
+		}
+		$sign = $this->rsaSign($temp,$private_key_path,$sign_type);
+		if($return){
+			if($ver == 'old'){
+				return $temp.'&sign='.urlencode($sign).'&sign_type="RSA"';
+			} else {
+				return $temp.'&sign='.urlencode($sign);
+			}
+		} else {
+			$params['sign'] = $sign;
+			return $params;
+		}
+	}
 	 
 	/**
 	 * 支付宝wap支付2.0所需参数 (新版)
@@ -587,9 +615,16 @@ class pay{
 	}
 	
 	/**
-	 * 支付宝wap支付1.0所需参数（旧版）
+	 * 支付宝wap支付1.0 (旧版3.4)
 	 */
 	public function aliWapPayParamsOld($params = array()){
+		
+	}
+	
+	/**
+	 * 支付宝wap支付1.0（旧版3.3）
+	 */
+	public function aliWapPayParamsOlder($params = array()){
 		//校验必须参数
 		$reqParams = array('subject','total_fee','notify_url','out_trade_no');
 		foreach($reqParams as $param){
@@ -646,26 +681,10 @@ class pay{
 		//以建立HTML的形式 向支付网关发送POST请求
 		$para_sign = $this->aliParamsSign($para_token,$key,$params['sign_type']);
 		echo $this->postGatewayForm($gate_way,$para_sign,$para_token['_input_charset'],'post');
-		
 	}
 	
-	
 	/**
-	 * 以构造HTML表单的形式向支付网关发送一个POST/GET请求（wap旧接口）
-	 */
-	 private function postGatewayForm($gate_way,$para,$input_charset='utf-8',$methor='post'){
-		$html = "<form id='alipaysubmit' name='alipaysubmit' action='".$gate_way."?_input_charset=".$input_charset."' method='".$method."'>";
-		foreach($para as $k=>$v){
-			$html.= "<input type='hidden' name='".$k."' value='".$v."'/>";
-		}
-		//submit按钮控件请不要含有name属性 (含有name属性会产生一些诡异的BUG)
-		$html = $html."<input type='submit' value='提交'></form>";
-		$html = $html."<script>document.forms['alipaysubmit'].submit();</script>";
-		return $html;
-	 }
-	 
-	/**
-	 * 向支付网关发送一个POST请求(wap旧接口)
+	 * 向支付网关发送一个POST请求(wap旧接口3.3)
 	 */
 	private function postGateway($gate_way,$para,$input_charset='',$cacert_url=''){
 		if (trim($input_charset) != '') {
@@ -686,10 +705,9 @@ class pay{
 		curl_close($curl);
 		return $responseText;
 	}
-	 
-	 
+	
 	/**
-	 * 解析远程返送的数据(旧wap接口)
+	 * 解析远程返送的数据(旧wap接口3.3)
 	 */
 	private function parseResponse($str_text,$private_key_path='',$sign_type='') {
 		//以“&”字符切割字符串
@@ -721,34 +739,21 @@ class pay{
 		
 		return $para_text;
 	}
-	 
 	
 	/**
-	 * 支付宝参数签名(支持旧版)-APP版
+	 * 以构造HTML表单的形式向支付网关发送一个POST/GET请求（wap旧接口3.3）
 	 */
-	private function getParamSign($params = array(),$private_key_path,$sign_type = 'RSA',$ver = 'old',$return = true){
-		$temp = "";
-		foreach ($params as $k => $v){
-			$temp .= $k . '=' . $v . '&';
+	 private function postGatewayForm($gate_way,$para,$input_charset='utf-8',$methor='post'){
+		$html = "<form id='alipaysubmit' name='alipaysubmit' action='".$gate_way."?_input_charset=".$input_charset."' method='".$method."'>";
+		foreach($para as $k=>$v){
+			$html.= "<input type='hidden' name='".$k."' value='".$v."'/>";
 		}
-		//echo $temp;
-		$temp = substr($temp, 0, strlen($temp)-1);
-		if(get_magic_quotes_gpc()){
-			$temp = stripslashes($temp);
-		}
-		$sign = $this->rsaSign($temp,$private_key_path,$sign_type);
-		if($return){
-			if($ver == 'old'){
-				return $temp.'&sign='.urlencode($sign).'&sign_type="RSA"';
-			} else {
-				return $temp.'&sign='.urlencode($sign);
-			}
-		} else {
-			$params['sign'] = $sign;
-			return $params;
-		}
-	}
-	
+		//submit按钮控件请不要含有name属性 (含有name属性会产生一些诡异的BUG)
+		$html = $html."<input type='submit' value='提交'></form>";
+		$html = $html."<script>document.forms['alipaysubmit'].submit();</script>";
+		return $html;
+	 }
+	 
 	/**
 	 * 支付宝wap支付组装Form表单 (新版本)
 	 */
