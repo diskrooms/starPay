@@ -644,8 +644,8 @@ class pay{
 		$gate_way = 'https://mapi.alipay.com/gateway.do?';
 		//参数验签后生成新的参数数组
 		$key = ($params['sign_type'] == 'MD5') ? $params['key'] : $params['private_key_path'];
-		$para_sign = $this->aliParamsSign($para_req,$key,$params['sign_type']);
-		echo $this->postGatewayForm($gate_way,$para_sign,$params['_input_charset'],'post');
+		$params_and_sign = $this->aliParamsSign($params,$key,$params['sign_type']);
+		echo $this->postGatewayForm($gate_way,$params_and_sign,$params['_input_charset'],'post');
 	}
 	
 	
