@@ -218,7 +218,57 @@ class TestTPController extends Controller {
 		}
 	}
 	
-	//支付宝wap 1.0支付（旧版 3.3）
+	//支付宝wap 1.0支付(旧版3.4)
+	public function testAlipayWapPayOld(){
+		$config = array(
+			'appid'=>'xxx',					//开发者应用ID	  新版接口需要
+			'parterid'=>'xxx',				//支付宝合作者身份id 旧版接口需要 新版不需要
+			'sellerid'=>'xxx@xxx.com',		//支付宝卖家账号
+			'type'=>'alipay'				//支付类型
+		);
+		$this->pay->init($config);
+		//编写用户自己的业务逻辑(接收前端参数)
+		try {
+			$orderId = $this->pay->createOrder();
+			$params = array(
+				'key'=>'xxx',											//验签密钥 		签名方式为MD5时设置该值		必须
+				'private_key_path'=>'xxx',								//商户私钥文件路径	签名方式为RSA时设置该值		必须
+				'ali_public_key_path'=>'xxx',							//支付宝公钥文件路径 签名方式为RSA时设置该值	必须
+				'total_fee'=>'0.01',									//订单金额								必须	单位:元
+				'subject'=>'test',										//订单名称								必须
+				'out_trade_no'=>$orderId,								//商户订单号								必须
+				'notify_url'=>'xxx',									//服务器异步通知地址						必须
+				'show_url'=>'xxx',										//收银台页面上 商品展示的超链接				必须
+				
+				'body'=>'xxx',											//商品描述								非必须
+				'return_url'=>'xxx',									//服务器同步通知地址						非必须
+				'sign_type'=>'',										//验签方式 支持MD5和RSA 缺省设置为RSA		非必须
+				'cacert'=>'',											//ca证书路径地址，用于curl中ssl校验 请保证cacert.pem文件在当前文件夹目录中 非必须
+				'transport'=>'',										//访问模式,根据自己的服务器是否支持ssl访问，若支持请选择https；若不支持请选择http 缺省设置为http 非必须
+				'app_pay'=>'Y',											//启用此参数能唤起钱包APP支付宝				非必须
+				'it_b_pay'=>'30m',										//未付款交易的超时时间						非必须
+				'extern_token'=>'',										//钱包token								非必须
+				'otherfee'=>'200',										//航旅订单其它费用 单位:元					非必须
+				'airticket'=>'',										//航旅订单金额
+				'rn_check'=>'',											//是否实名认证 T实名 F不实名					非必须
+				'buyer_cert_no'=>'',									//买家证件号码 scene=ZJCZTJF的情况下才会校验	非必须
+				'buyer_real_name'=>'',									//买家真实姓名	 scene=ZJCZTJF的情况下才会校验	非必须
+				'scene'=>'',											//收单场景 如需使用该字段，需向支付宝申请开通	非必须
+				'hb_fq_param'=>'',										//花呗分期参数								非必须
+				'goods_type'=>'',										//商品类型 0虚拟 1实物 默认1				非必须
+				'promo_params'=>'',										//商户优惠活动参数							非必须
+				'enable_paymethod'=>'',									//可用渠道 用户只能在指定渠道范围内支付		非必须
+				'extend_params'=>''										//业务扩展参数								非必须
+				
+			);
+			$response = $this->pay->aliWapPayParamsOld($params);
+			
+		} catch (Exception $e){
+			
+		}
+	}
+	
+	//支付宝wap 1.0支付(旧版3.3)
 	public function testAlipayWapPayOlder(){
 		$config = array(
 			'appid'=>'xxx',					//开发者应用ID	  新版接口需要

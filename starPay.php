@@ -618,8 +618,36 @@ class pay{
 	 * 支付宝wap支付1.0 (旧版3.4)
 	 */
 	public function aliWapPayParamsOld($params = array()){
+		if(empty($this->alipayPartner) || empty($this->alipaySellerId)){
+		 	throw new \Exception('wap支付旧接口合作者id和卖家账号email不能为空');
+		}
+		//检验必须参数
+		$reqParams = array('subject','total_fee','notify_url','out_trade_no','show_url');
+		foreach($reqParams as $param){
+			if(empty($params[$param])){
+				throw new \Exception($param.'参数不能为空');
+			}
+		}
+		if((empty($params['key']) && empty($params['private_key_path'])) || empty($params['ali_public_key_path'])){
+			throw new \Exception('密钥设置不能为空');
+		}
+		//填充缺省业务参数
+		$params['sign_type'] = trim($params['sign_type']) ? trim($params['sign_type']) : 'RSA';
+		$params['service'] = 'alipay.wap.create.direct.pay.by.user';
+		$params['partner'] = $this->alipayPartner;
+		$params['seller_id'] = $this->alipaySellerId;
+		$params['_input_charset'] = 'utf-8';
+		$params['payment_type'] = 1;
 		
+		
+		//支付宝网关
+		$gate_way = 'https://mapi.alipay.com/gateway.do?';
+		//参数验签后生成新的参数数组
+		$key = ($params['sign_type'] == 'MD5') ? $params['key'] : $params['private_key_path'];
+		$para_sign = $this->aliParamsSign($para_req,$key,$params['sign_type']);
+		echo $this->postGatewayForm($gate_way,$para_sign,$params['_input_charset'],'post');
 	}
+	
 	
 	/**
 	 * 支付宝wap支付1.0（旧版3.3）
