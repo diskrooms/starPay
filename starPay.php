@@ -1016,9 +1016,11 @@ class pay{
 	 }
 	 
 	 //GET请求数据 如果有curl扩展 就使用curl进行请求 如果没有相应模块 就使用file_get_contents函数
-	//url 		要请求的url地址
-	//timeout 	超时时间
-	//count		请求总数(超时重发)
+	//$url 		要请求的url地址
+	//$timeout 	超时时间
+	//$count		请求总数(超时重发)
+	//$ctype	返回内容格式
+	//$charset	返回内容编码
 	private function requestGet($url = '',$timeout = 6,$count = 3,$ctype = 'text/html',$charset = 'utf-8'){
 		header("Content-type:".$ctype."; charset=".$charset);
 		static $index = 0 ;
