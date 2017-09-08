@@ -197,9 +197,9 @@ class pay{
 	}
 	
 	/**
-	 * 接收异步回调数据并进行验证
+	 * wechat接收异步回调数据并进行验证
 	 */
-	private function notify(){
+	private function wechatNotify(){
 	    $xml = file_get_contents('php://input');   //比 $GLOBALS['HTTP_RAW_POST_DATA']占用内存更少？
 	    $notifyData = $this->xml2array($xml);
 	    $sign_ = $this->sign($notifyData);
@@ -209,6 +209,113 @@ class pay{
 	        return array('checkSign'=>false,'nofityData'=>$notifyData);
 	    }
 	}
+	
+	/**
+	 * 支付宝wap旧版接收异步回调数据(3.3)
+	 */
+	 public function alipayWapNotifyOlder($config = array()){
+		 //参数过滤
+		 if(is_array($config) && !empty($config)){
+			 throw new Exception('配置参数不能为空');
+			 exit();
+		 } else {
+			 foreach($config as $_k=>&$_v){
+				 if(($_k == 'sign_type') || ($_k == 'transport')){
+					 $_v = strtoupper(trim($_v));
+				 } else {
+				 	$_v = trim($_v);
+				 }
+			 }
+		 }
+		 //签名认证
+		 if(empty($_POST)) {//判断POST来的数组是否为空
+			return false;
+		 } else {
+			//对notify_data解密
+			$decrypt_post_para = $_POST;
+			if ($config['sign_type'] == '0001') {
+				//RSA解密
+				//$decrypt_post_para['notify_data'] = rsaDecrypt($decrypt_post_para['notify_data'], $config['private_key_path']);
+			}
+			
+			//notify_id从decrypt_post_para中解析出来（也就是说decrypt_post_para中已经包含notify_id的内容）
+			$doc = new DOMDocument();
+			if(empty($doc)){
+				$doc = new \DOMDocument();
+			}
+			if(empty($doc)){
+				throw new Exception('请确认是否已加载DOM扩展');
+			}
+			$doc->loadXML($decrypt_post_para['notify_data']);
+			//解析XML
+			$notify_id = $doc->getElementsByTagName( "notify_id" )->item(0)->nodeValue;
+			//获取支付宝远程服务器ATN结果（验证是否是支付宝发来的消息）
+			$responseTxt = 'true';
+			if (!empty($notify_id)) {
+				$responseTxt = $this->getResponse($notify_id);
+				if($config['transport'] == 'HTTPS'){
+					$veryfy_url = "https://mapi.alipay.com/gateway.do?service=notify_verify&partner=" . $config['partner'] . "&notify_id=" . $notify_id;
+				} else {
+					$veryfy_url = "http://notify.alipay.com/trade/notify_query.do?partner=" . $config['partner'] . "&notify_id=" . $notify_id;
+				}
+				$responseTxt = $this->requestGet(array('url'=>$veryfy_url,'verify'=>true,'cacert'=>$config['cacert']));
+			}
+			//生成签名结果
+			/*$signStr = '';
+			if($config['sort']){
+				ksort($decrypt_post_para);
+				reset($decrypt_post_para);
+				foreach($decrypt_post_para as $k=>$v){
+					if($k != 'sign' && $k != 'sign_type' && !empty($v) && !is_array($v)){
+						$signStr .= $k.'='.$v.'&';
+					}
+				}
+				//去掉最后一个 &
+				$signStr = substr($signStr, 0, strlen($signStr)-1);
+			} else {
+				$signStr = 'service='.$decrypt_post_para['service'].'&v='.$decrypt_post_para['v'].'&sec_id='.$decrypt_post_para['sec_id'].'&notify_data='.$decrypt_post_para['notify_data'];
+			}
+			//如果存在转义字符，那么去掉转义
+			if(get_magic_quotes_gpc()){
+				$signStr = stripslashes($signStr);
+			}
+			
+			$signRight = false;
+			if($config['sign_type'] == 'MD5'){
+				$sign_ = md5($signStr.$config['key']);
+				if($sign == $sign_){
+					return true;
+				}
+			} elseif(($config['sign_type'] == 'RSA') || ($config['sign_type'] == '0001')){
+				
+			}*/
+
+			$result = $this->aliParamsSign($decrypt_post_para,$config['key'],'MD5',false);
+			dump($result);
+			exit();
+			//写日志记录
+			//if ($isSign) {
+			//	$isSignStr = 'true';
+			//}
+			//else {
+			//	$isSignStr = 'false';
+			//}
+			//$log_text = "responseTxt=".$responseTxt."\n notify_url_log:isSign=".$isSignStr.",";
+			//$log_text = $log_text.createLinkString($_POST);
+			//logResult($log_text);
+			
+			//验证
+			//$responsetTxt的结果不是true，与服务器设置问题、合作身份者ID、notify_id一分钟失效有关
+			//isSign的结果不是true，与安全校验码、请求时的参数格式（如：带自定义参数等）、编码格式有关
+			if (preg_match("/true$/i",$responseTxt) && $signRight) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		 
+	 }
+	 
 	
 	/**
 	 * 收到异步数据后向微信发送验签成功信息
@@ -833,22 +940,27 @@ class pay{
 	/**
 	 * 支付宝请求参数数组组装成待签名字符串
 	 * 待签名的字符串
+	 * isSort true 将参数按键名正向排序 false 固定指定参数顺序 (只对alipay wap支付旧版3.3有效)
 	 */
-	private function aliParamsToStringForSign($params = array()){
+	private function aliParamsToStringForSign($params = array(),$isSort = true){
 		$_para_token = array();
-		//参数过滤
-		foreach($params as $k=>$v){
-			if(($k !== 'sign') && ($k !== 'sign_type') && !empty($v)){
-				$_para_token[$k] = $v;
+		if($isSort){
+			//参数过滤
+			foreach($params as $k=>$v){
+				if(($k !== 'sign') && ($k !== 'sign_type') && !empty($v) && !is_array($v)){
+					$_para_token[$k] = $v;
+				}
 			}
+			$temp = "";
+			ksort($_para_token);
+			foreach ($_para_token as $k => $v){
+				$temp .= $k . '=' . $v . '&';
+			}
+			//去掉最后一个 &
+			$temp = substr($temp, 0, strlen($temp)-1);
+		} else {
+			$temp = 'service='.$params['service'].'&v='.$params['v'].'&sec_id='.$params['sec_id'].'&notify_data='.$params['notify_data'];
 		}
-		$temp = "";
-		ksort($_para_token);
-		foreach ($_para_token as $k => $v){
-			$temp .= $k . '=' . $v . '&';
-		}
-		//去掉最后一个 &
-		$temp = substr($temp, 0, strlen($temp)-1);
 		if(get_magic_quotes_gpc()){
 			$temp = stripslashes($temp);
 		}
@@ -863,12 +975,12 @@ class pay{
 	 *  @param $sign_type 签名算法 RSA RSA2 MD5 0001
 	 *  @return $aliParams	附带签名数据的参数数组
 	 */
-	 private function aliParamsSign($aliParams = array(),$key = '',$sign_type='MD5'){
+	 private function aliParamsSign($aliParams = array(),$key = '',$sign_type='MD5',$isSort = true){
 		 if(empty($aliParams) || empty($key)){
 			throw new \Exception('待签名参数数组和密钥不能为空'); 
 		 }
 		 //生成待签名字符串
-		 $resForSign = $this->aliParamsToStringForSign($aliParams);
+		 $resForSign = $this->aliParamsToStringForSign($aliParams,$isSort);
 		 $strForSign = $resForSign['str'];
 		 $sign_type = strtoupper($sign_type);
 		 if(($sign_type == '0001') || ($sign_type == 'RSA') || ($sign_type == 'RSA2')){
@@ -896,11 +1008,128 @@ class pay{
 			return $resForSign['arr'];
 		 } elseif($sign_type == 'MD5'){
 			 $sign = md5($strForSign.$key);
-			 
 			 $resForSign['arr']['sign'] = $sign;
 			return $resForSign['arr'];
 		 } else {
 			 throw new \Exception('签名类型有误');
 		 }
 	 }
+	 
+	 //GET请求数据 如果有curl扩展 就使用curl进行请求 如果没有相应模块 就使用file_get_contents函数
+	//url 		要请求的url地址
+	//timeout 	超时时间
+	//count		请求总数(超时重发)
+	private function requestGet($url = '',$timeout = 6,$count = 3,$ctype = 'text/html',$charset = 'utf-8'){
+		header("Content-type:".$ctype."; charset=".$charset);
+		static $index = 0 ;
+    	$index++;
+		if(empty($url)){
+			throw new exception('url参数不能为空');
+		}
+		$ch = curl_init();
+		if($ch){
+			//设置curl
+			curl_setopt($ch, CURLOPT_TIMEOUT, $timeout);
+			curl_setopt($ch, CURLOPT_URL, $url);
+			curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,FALSE); //不认证证书
+			curl_setopt($ch, CURLOPT_SSL_VERIFYHOST,FALSE);
+			curl_setopt($ch, CURLOPT_HEADER, FALSE);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+			$content = curl_exec($ch);
+	        if($content === false){
+				if(curl_errno($ch) == CURLE_OPERATION_TIMEDOUT){
+					if($index < $count){
+						//超时重发
+						$this->requestGet($url);
+					}
+				}
+			}
+			curl_close($ch);
+		} else {
+			$content = file_get_contents($url);
+		}
+		return $content;
+	}
+	
+	//POST请求数据 如果有curl扩展 就使用curl进行请求 如果没有相应模块 就是用file_get_contents函数
+	//url 		要请求的url地址
+	//timeout 	超时时间
+	//count		请求总数(超时重发)
+	private function requestPost($config = array()){
+		$_config = array(
+			'url'=>empty(trim($config['url'])) ?  '' : trim($config['ur']),
+			'data'=>empty($config['data']) ?  array() : $config['data'],
+			'verify'=>$config['verify'] ? true : false,
+			'cacert'=>empty(trim($config['cacert'])) ?  '' : trim($config['cacert']),
+			'timeout'=>empty(trim($config['timeout'])) ?  6 : trim($config['timeout']),
+			'count'=>empty(trim($config['count'])) ?  3 : trim($config['count']),
+		);
+		static $index = 0 ;
+    	$index++;
+		if(empty($_config['url'])){
+			throw new exception('url参数不能为空');
+		}
+		$ch = curl_init();
+		if($ch){
+			//设置curl
+			curl_setopt($ch, CURLOPT_TIMEOUT, $_config['timeout']);
+			curl_setopt($ch, CURLOPT_URL, $_config['url']);
+			if($_config['verify']){
+				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,true); //ssl证书认证
+				curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 2);//严格认证
+				curl_setopt($curl, CURLOPT_CAINFO,$_config['cacert']);//证书地址
+			} else {
+				curl_setopt($ch, CURLOPT_SSL_VERIFYPEER,FALSE); //不认证证书
+				curl_setopt($ch, CURLOPT_SSL_VERIFYHOST,FALSE);
+			}
+			curl_setopt($ch, CURLOPT_HEADER, FALSE);
+			curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+			curl_setopt($ch, CURLOPT_POST, 1);						// post方式
+			curl_setopt($ch, CURLOPT_POSTFIELDS, $_config['data']);	// post数据
+			$content = curl_exec($ch);
+	        if($content === false){
+				if(curl_errno($ch) == CURLE_OPERATION_TIMEDOUT){
+					if($index < $_config['count']){
+						//超时重发
+						$this->requestPost($_config);
+					}
+				}
+				
+			} 
+			curl_close($ch);
+		} else {
+			$_data = http_build_query($_config['data']);
+			$context = array(
+				'http'=>array(
+					'method'=>'POST',
+					'content'=>$_data
+				)
+			);
+			$context  = stream_context_create($context);
+			$content = file_get_contents($_config['url'],false,$context);
+		}
+		return $content;
+	}
+	
+	/**
+	 * RSA解密
+	 * @param $content 需要解密的内容，密文
+	 * @param $private_key_path 商户私钥文件路径
+	 * return 解密后内容，明文
+	 */
+	private function rsaDecrypt($content, $private_key_path) {
+		$priKey = file_get_contents($private_key_path);
+		$res = openssl_get_privatekey($priKey);
+		//用base64将内容还原成二进制
+		$content = base64_decode($content);
+		//把需要解密的内容，按128位拆开解密
+		$result  = '';
+		for($i = 0; $i < strlen($content)/128; $i++  ) {
+			$data = substr($content, $i * 128, 128);
+			openssl_private_decrypt($data, $decrypt, $res);
+			$result .= $decrypt;
+		}
+		openssl_free_key($res);
+		return $result;
+	}
 }

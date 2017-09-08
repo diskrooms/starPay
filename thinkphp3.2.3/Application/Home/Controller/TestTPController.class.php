@@ -307,15 +307,31 @@ class TestTPController extends Controller {
 	}
 	
 	
-	//微信异步回调
-	public function testNotify(){
-		if($this->pay->notify()['checkSign'] == true){
+	//测试微信异步回调
+	public function testWechatNotify(){
+		if($this->pay->wechatNotify()['checkSign'] == true){
 			file_put_contents('./testNofity.txt',serialize($this->pay->notify()['notifyData']));
 			//填写商家自己的业务逻辑
 			$this->pay->notifySuccess();
 		} else {
 			$this->pay->notifyFail();
 		}
+	}
+	
+	//测试alipay wap旧版3.3 异步回调
+	public function testAlipayWapNotifyOlder(){
+		
+		$config = array(
+			'partner'=>'',
+			'sign_type'=>'md5',
+			'private_key_path'=>'xxx',
+			'ali_public_key_path'=>'xxx',
+			'key'=>'xxx',
+			'transport'=>'http',
+			'cacert'=>'',
+			'sort'=>false		//true 参数排序 同步通知   /  false固定参数 异步通知
+		);
+		$this->pay->alipayWapNotifyOlder($config);
 	}
 	
 }
