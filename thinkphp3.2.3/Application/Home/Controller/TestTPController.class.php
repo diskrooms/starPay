@@ -9,7 +9,7 @@ use Think\Controller;
 class TestTPController extends Controller {
 	//初始化配置
 	public function _initialize() {
-		Vendor('starPay.starPay');
+		Vendor('starPay.starPay2');
 		$this->pay = new \pay();
 	}
 	
@@ -309,7 +309,7 @@ class TestTPController extends Controller {
 	
 	//测试微信异步回调
 	public function testWechatNotify(){
-		if($this->pay->wechatNotify()['checkSign'] == true){
+		if($this->pay->notify()['checkSign'] == true){
 			file_put_contents('./testNofity.txt',serialize($this->pay->notify()['notifyData']));
 			//填写商家自己的业务逻辑
 			$this->pay->notifySuccess();

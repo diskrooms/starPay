@@ -443,7 +443,7 @@ class pay{
 	    $jsPayParameters['nonceStr'] = $order['nonce_str']; //或者重新生成随机字符串
 	    $jsPayParameters['package'] = 'prepay_id='.$order['prepay_id'];
 	    $jsPayParameters['signType'] = "MD5";
-	    $jsPayParameters['timeStamp'] = time();
+	    $jsPayParameters['timeStamp'] = ''.time().'';		//参数为整数 在IOS上会有兼容性问题 故强制转换为字符串 
 	    $jsPayParameters['paySign'] = $this->sign($jsPayParameters);
 	    return json_encode($jsPayParameters);
 	}
